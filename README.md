@@ -1,7 +1,10 @@
-# Projeto Integrador Grupo 3
- Projeto desenvolvido por Enzo Costa, Bianca de Oliveira, Eduardo de Oliveira,  Ciuverlania Andrade
- 
-É necessário seguir o checklist:<br>
+<h1 align="center"> Projeto Integrador Grupo 3 </h1>
+
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+
+RPG em desenvolvimento para auxiliar os alunos com a disciplina de Fundamentos da Administração do curso de Análise e Desenvolvimento de Sistemas. <br>
+
+:ear:É necessário seguir o checklist: <br>
 Utilizar apenas 1 classe (1 ponto)<br>
 Utilizar IF (1 ponto)<br>
 Utilizar Switch (1 ponto)<br>
@@ -13,7 +16,11 @@ Utilizar aleatoriedade (1 ponto)<br>
 Comentários explicativos (1 ponto)<br>
 Fazer entre 5 e 10 desafios (1 ponto)<br>
 
-O projeto está em: Desenvolvimento com 10%
+O projeto está em: Desenvolvimento com 10% <br>
+
+<h4 align="center"> 
+    :construction:  Projeto em construção  :construction:
+</h4>
 
 Fluxograma a ser seguido: <br>
 Timeline inicial (depois de implementar isso, aí sim podemos acrescentar mais coisas):<br>
@@ -37,3 +44,5 @@ Implementar o final do jogo<br>
 --> Implementar um fim onde o jogador perde<br>
 
 Implementar um sistema de vidas<br>
+
+Projeto desenvolvido por Enzo Costa, Bianca de Oliveira, Eduardo de Oliveira,  Ciuverlania Andrade
