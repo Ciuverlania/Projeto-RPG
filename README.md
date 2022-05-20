@@ -2,16 +2,16 @@
  Projeto desenvolvido por Enzo Costa, Bianca de Oliveira, Eduardo de Oliveira,  Ciuverlania Andrade
  
 É necessário seguir o checklist:<br>
-Utilizar apenas 1 classe (1 ponto)
-Utilizar IF (1 ponto)
-Utilizar Switch (1 ponto)
-Laço de repetição; While, do/while ou for (1 ponto)
-Usar arrays; vetor ou matriz (1 ponto)
-Usar métodos (1 ponto)
-Implementação Menu (1 ponto)
-Utilizar aleatoriedade (1 ponto)
-Comentários explicativos (1 ponto)
-Fazer entre 5 e 10 desafios (1 ponto)
+Utilizar apenas 1 classe (1 ponto)<br>
+Utilizar IF (1 ponto)<br>
+Utilizar Switch (1 ponto)<br>
+Laço de repetição; While, do/while ou for (1 ponto)<br>
+Usar arrays; vetor ou matriz (1 ponto)<br>
+Usar métodos (1 ponto)<br>
+Implementação Menu (1 ponto)<br>
+Utilizar aleatoriedade (1 ponto)<br>
+Comentários explicativos (1 ponto)<br>
+Fazer entre 5 e 10 desafios (1 ponto)<br>
 
 O projeto está em: Desenvolvimento com 10%
 
