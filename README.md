@@ -2,8 +2,8 @@
  Projeto desenvolvido por Enzo Costa, Bianca de Oliveira, Eduardo de Oliveira,  Ciuverlania Andrade
  
 É necessário seguir o checklist:
-Utilizar apenas 1 classe (1 ponto)
-Utilizar IF (1 ponto)
+# Utilizar apenas 1 classe (1 ponto)
+# Utilizar IF (1 ponto)
 Utilizar Switch (1 ponto)
 Laço de repetição; While, do/while ou for (1 ponto)
 Usar arrays; vetor ou matriz (1 ponto)
