@@ -72,14 +72,13 @@ public class TheRestoration {
 	public static void main(String[] args) {
 
 		if (menu() == 2) {
-			System.out.println("aa");
+			System.out.println("Seja Bem Vindo \" + \"nome do jogador\" + \" ao Mundo de THE RESTORATION");
 
 		}
+		Scanner entrada = new Scanner(System.in);
 		
 		int desafio1 =0;
-		int desafio2 =0;
-		
-		System.out.println("Seja Bem Vindo " + "nome do jogador" + " ao Mundo de THE RESTORATION");
+
 		System.out.println("Sabemos que você possui muitos conhecimentos em administração, e é por isso que o nomeamos como líder de nossa tribo, tenho certeza de que sua ajuda nos guiará rumo à vitória, \nA tribo te escolheu por meio da Teoria da Personalidade, onde percebendo o seu nível de conhecimento em administração te apontaram como um bom líder, qual foi o meio utilizado para fazer está escolha?\n");
 		
 		do {
@@ -95,7 +94,7 @@ public class TheRestoration {
 			break;
 			
 		case 2:
-			System.out.println("Suas habilidades administrativas foram o motivo no qual eles te escolheram, sua inteligência para gerir e organizar nossa tribo será fundamental para a sobrevivência.\n");
+			System.out.println("Suas habilidades administrativas foram o motivo no qual nós te escolhemos, sua inteligência para gerir e organizar nossa tribo será fundamental para a sobrevivência.\n");
 			
 		case 3: 
 			System.out.println("Realmente, sua comunicação e persistência são admiráveis, mas este não é o motivo correto.\n");
