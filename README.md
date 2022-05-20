@@ -24,7 +24,7 @@ Implementar o menu com as opções: Instruções, Jogar , Créditos e Sair<br>
 --> Créditos: imprimir o nome dos integrantes do grupo<br>
 --> Sair: finalizar o jogo<br>
 
-Sempre comentar o que foi feito (para os outros integrantes entender e também porque vale ponto)<br>
+Sempre comentar o que foi feito (para os outros integrantes entenderem e também porque vale ponto)<br>
 
 Implementar uma função que imprima perguntas e julgue se estão corretas ou não - FEITO<br>
 Implementar Desafios 1 e 2<br>
