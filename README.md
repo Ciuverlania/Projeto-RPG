@@ -47,4 +47,5 @@ Implementar o final do jogo<br>
 
 Implementar um sistema de vidas<br>
 
-Projeto desenvolvido por Enzo Costa, Bianca de Oliveira, Eduardo de Oliveira,  Ciuverlania Andrade
+## Projeto desenvolvido por Enzo Costa, Bianca de Oliveira, Eduardo de Oliveira,  Ciuverlania Andrade
+
