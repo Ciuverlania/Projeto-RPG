@@ -15,25 +15,25 @@ Fazer entre 5 e 10 desafios (1 ponto)<br>
 
 O projeto está em: Desenvolvimento com 10%
 
-Fluxograma a ser seguido: 
-Timeline inicial (depois de implementar isso, aí sim podemos acrescentar mais coisas):
+Fluxograma a ser seguido: <br>
+Timeline inicial (depois de implementar isso, aí sim podemos acrescentar mais coisas):<br>
 
-Implementar o menu com as opções: Instruções, Jogar , Créditos e Sair
---> Instruções: imprimir as instruções do jogo
---> Jogar: iniciar o jogo, mostrando a introdução do jogo
---> Créditos: imprimir o nome dos integrantes do grupo
---> Sair: finalizar o jogo
+Implementar o menu com as opções: Instruções, Jogar , Créditos e Sair<br>
+--> Instruções: imprimir as instruções do jogo<br>
+--> Jogar: iniciar o jogo, mostrando a introdução do jogo<br>
+--> Créditos: imprimir o nome dos integrantes do grupo<br>
+--> Sair: finalizar o jogo<br>
 
-Sempre comentar o que foi feito (para os outros integrantes entender e também porque vale ponto)
+Sempre comentar o que foi feito (para os outros integrantes entender e também porque vale ponto)<br>
 
-Implementar uma função que imprima perguntas e julgue se estão corretas ou não - FEITO
-Implementar Desafios 1 e 2
-Implementar Desafios 3 e 4
-Implementar Desafios 5 e 6
-Implementar Desafios 7 e 8
-Implementar o final do jogo
+Implementar uma função que imprima perguntas e julgue se estão corretas ou não - FEITO<br>
+Implementar Desafios 1 e 2<br>
+Implementar Desafios 3 e 4<br>
+Implementar Desafios 5 e 6<br>
+Implementar Desafios 7 e 8<br>
+Implementar o final do jogo<br>
 
---> Implementar um fim onde o jogador vence
---> Implementar um fim onde o jogador perde
+--> Implementar um fim onde o jogador vence<br>
+--> Implementar um fim onde o jogador perde<br>
 
-Implementar um sistema de vidas
+Implementar um sistema de vidas<br>
