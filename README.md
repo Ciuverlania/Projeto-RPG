@@ -3,6 +3,8 @@
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
 
 RPG em desenvolvimento para auxiliar os alunos com a disciplina de Fundamentos da Administração do curso de Análise e Desenvolvimento de Sistemas. <br>
+<br>✔️ Técnicas e tecnologias utilizadas
+- > Java 
 
 :ear:É necessário seguir o checklist: <br>
 Utilizar apenas 1 classe (1 ponto)<br>
