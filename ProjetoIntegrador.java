@@ -113,7 +113,41 @@ public class ProjetoIntegrador {
 			} while (opcao != 3);
 			System.out.println(memoria.get(1));
 		} else if (desafio == 2) {
+			else if (Selecionado == 2) {
+				
+			int opcao;
 
+			do {
+				System.out.println("1- Todos estão pedindo por isso, então o que mais eu poderia fazer?");
+				System.out.println("2- Me escolheram como líder, e devo honrar isto, indo além do que me é solicitado.");
+				System.out.println("3- Existe diferença?");
+				System.out.println("4- Eu nunca nego um desafio.");
+				System.out.print("Escolha uma opção: ");
+				opcao = input.nextInt();
+
+				switch (opcao) {
+
+				case 1:
+					System.out.println("Anh??");
+					break;
+
+				case 2:
+					System.out.println("Muito bem, é por isso que te escolhemos como nosso líder!");
+					break;
+
+				case 3:
+					System.out.println("?-?...... Poxa, isso não devia ser tão difícil....");
+					break;
+
+				case 4:
+					System.out.println("Vamos lá, o seu ego não devia ser o motivo de sua escolha.");
+					break;
+
+				default:
+					System.out.println("Escolha uma opção válida.");
+
+				}
+			} while (opcao != 2);
 		} else if (desafio == 3) {
 
 		} else if (desafio == 4) {
