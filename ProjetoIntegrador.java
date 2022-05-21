@@ -5,124 +5,179 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ProjetoIntegrador {
+	public static Scanner input = new Scanner(System.in);
+	private static String texto, nome;
+	private static int desafio;
+	private static List<String> memoria = new ArrayList<>();
 
-	public static int QuestioMarcos() {
-		int escolha = 0;
+	public static void QuestioMarcos() {
+		int resposta = 0, Planta;
+		String texto;
 
-		return escolha;
+		texto = "Seja Bem Vindo(a) " + nome + " algumas coisas me preocupam, ainda mais depois da morte do seu pai....";
+		TypeEffect(texto);
+		texto = "Sabemos que você possui muitos conhecimentos em administração, e é por isso que o nomeamos como líder de nossa tribo, tenho certeza de que sua ajuda nos guiará rumo à vitória,\n"
+				+ "A tribo te escolheu por meio da Teoria da Personalidade, onde percebendo o seu nível de conhecimento em administração "
+				+ "te apontaram como um bom líder... ponderamos várias coisas mas adivinha só qual foi o meio utilizado para fazer está escolha?\n";
+		TypeEffect(texto);
+
+		do {
+			System.out.println("1 - Traços Físicos");
+			System.out.println("2 - Traços Sociais");
+			System.out.println("3 - Traços relacionados a tarefa");
+			System.out.print("Responda: ");
+			resposta = input.nextInt();
+
+			switch (resposta) {
+			case 1:
+				System.out.println(" -Marcos");
+				texto = "Apesar de sua boa aparência (digasse de passagem), este não foi o motivo no qual eles te escolheram.\n";
+				TypeEffect(texto);
+				System.out.println(" -" + nome);
+				texto = "Não é como se eu precisasse disso nos dias atuais\n";
+				TypeEffect(texto);
+				break;
+			case 2:
+				System.out.println(" -Marcos");
+				texto = "Suas habilidades administrativas foram o motivo no qual eles te escolheram, sua inteligência para gerir e organizar nossa tribo será fundamental para a sobrevivência.\n";
+				TypeEffect(texto);
+				System.out.println(" -" + nome);
+				texto = "Acho isso um pouco de mais pra mim\n";
+				TypeEffect(texto);
+				break;
+			case 3:
+				System.out.println(" -Marcos");
+				texto = "Realmente, sua comunicação e persistência são admiráveis, mas este não é o motivo correto.\n";
+				TypeEffect(texto);
+				System.out.println(" -" + nome);
+				texto = "Agradeço, e acredito que realmente vai me ser necessário\n";
+				TypeEffect(texto);
+				break;
+			default:
+				System.out.println("Opção inválida!");
+			}
+		} while (resposta != 2);
+		texto = "Tenho uma missão para você, em alguns dias estaremos em tempo de colheita, mas não plantamos nada ainda, temos algumas opções de plantio: \n"
+				+ " 1 - Plantar Chirivias\n" + " 2 - Plantar Morangos\n" + " 3 - Plantar Maçã\n"
+				+ " 4 - Plantar Beterrabas\n" + " 5 - Plantar Couve\n" + " 6 - Não plantar nada\n";
+		TypeEffect(texto);
+		System.out.print("Responda: ");
+		Planta = input.nextInt();
+		if (Planta == 6) {
+			texto = "Você fez uma péssima escolha.... infelizmente";
+			TypeEffect(texto);
+			String NaoPlant = "Nao";
+			memoria.add(NaoPlant);
+		} else {
+			String Plant = "Sim";
+			memoria.add(Plant);
+		}
+		desafio = 1;
+		desafios();
 	}
 
-	public static int desafios(int Selecionado) {
+	public static void desafios() {
+		int opcao = 0, chance1 = 0;
+		String texto, desafio1;
+		if (desafio == 1) {
+			do {
+				chance1 = 1;
+				System.out.println(" -Moon Presence");
+				texto = "\n\nDesafio!\n"
+						+ "Caso erre a questão será debitado uma de suas vidas e irá influenciar no seu futuro, então escolha sabiamente.\n\n"
+						+ "Desde os tempos antigos, influenciadores como Frederick Taylor pensava em como gerir pessoas se baseando nos pensamentos de Henri Fayol, nesse contexto\n"
+						+ "ele desenvolveu uma teoria que dava formas de lidar com diversas situações, uma de suas prioridades era o 'Planejamento'.\n"
+						+ "Qual foi o ponto importante no Planejamento feito por 'Fayol'?\n";
+				TypeEffect(texto);
+				texto = "1 - Manter os métodos antigos e se importar em criar novos métodos.\n"
+						+ "2 - Desenvolver jeitos impossíveis de lidar com os planos\n"
+						+ "3 - Trocar os métodos arcaícos para científicos\n";
+				TypeEffect(texto);
+				texto = "Responda: ";
+				TypeEffect(texto);
+				opcao = input.nextInt();
+				if (chance1 == 1) {
+					if (opcao == 3) {
+						texto = "Você acertou de primeira, isso influenciará seu futuro...\n";
+						TypeEffect(texto);
+						desafio1 = "certo";
+						memoria.add(desafio1);
+					} else {
+						texto = "Você errou de primeira, isso influenciará no seu futuro.....infelizmente\n";
+						TypeEffect(texto);
+						desafio1 = "errado";
+						memoria.add(desafio1);
+					}
+				}
+				chance1 += 1;
+			} while (opcao != 3);
+			System.out.println(memoria.get(1));
+		} else if (desafio == 2) {
 
-		if (Selecionado == 1) {
+		} else if (desafio == 3) {
 
-		} else if (Selecionado == 2) {
+		} else if (desafio == 4) {
 
-		} else if (Selecionado == 3) {
+		} else if (desafio == 5) {
 
-		} else if (Selecionado == 4) {
+		} else if (desafio == 6) {
 
-		} else if (Selecionado == 5) {
+		} else if (desafio == 7) {
 
-		} else if (Selecionado == 6) {
-
-		} else if (Selecionado == 7) {
-
-		} else if (Selecionado == 8) {
+		} else if (desafio == 8) {
 
 		}
-
-		return Selecionado;
 	}
 
-	public static int MapaVila(String nome) {
-		Scanner input = new Scanner(System.in);
+	public static void MapaVila() {
 		int localizacao;
 
-		System.out.printf("%n 1 - Prefeitura%n 2 - Tendas%n 3 - Hospital%n 4 - Poço%n");
+		System.out.printf("%n 1 - Prefeitura%n 2 - Tendas%n 3 - Hospital%n 4 - Poço%n 5 - Sair%n");
 		System.out.print("Responda: ");
 		localizacao = input.nextInt();
 		do {
 			if (localizacao == 1) {
-				SituaPrefeitura(nome);
+				SituaPrefeitura();
 			} else if (localizacao == 2) {
-				SituaTendas(nome);
+				SituaTendas();
 			} else if (localizacao == 3) {
-				SituaHospital(nome);
+				SituaHospital();
 			} else if (localizacao == 4) {
-				SituaPoco(nome);
+				SituaPoco();
+
+			} else if (localizacao == 5) {
+				texto = "Uma pena você ser um desistente";
+				TypeEffect(texto);
 
 			} else {
 				System.out.println("Digite um valor válido.");
-
 			}
 
-		} while (false);
-		return 0;
+		} while (localizacao != 5);
 
 	}
 
-	public static int SituaPrefeitura(String nome) { // Localizacao da prefeitura
-		Scanner input = new Scanner(System.in);
+	public static void SituaPrefeitura() { // Localizacao da prefeitura
 		int Falar;
 		String texto;
-		System.out.printf(" 1 - Falar com Marcos%n 2 - Falar com Leo%n 3 - Falar com Luca%n 4 - Sair%n");
-		Falar = input.nextInt();
 		do {
+			System.out.printf(" 1 - Falar com Marcos%n 2 - Falar com Leo%n 3 - Falar com Luca%n 4 - Sair%n");
+			texto = "Responda: ";
+			TypeEffect(texto);
+			Falar = input.nextInt();
+
 			if (Falar == 1) {
-				int quest = 0;
-
-				texto = "Seja Bem Vindo(a) " + nome
-						+ " algumas coisas me preocupam, ainda mais depois da morte do seu pai....";
-				TypeEffect(texto);
-				texto = "Sabemos que você possui muitos conhecimentos em administração, e é por isso que o nomeamos como líder de nossa tribo, tenho certeza de que sua ajuda nos guiará rumo à vitória,"
-						+ "\nA tribo te escolheu por meio da Teoria da Personalidade, onde percebendo o seu nível de conhecimento em administração "
-						+ "te apontaram como um bom líder, qual foi o meio utilizado para fazer está escolha?\n";
-				TypeEffect(texto);
-
-				do {
-					System.out.println("1 - Traços Físicos");
-					System.out.println("2 - Traços Sociais");
-					System.out.println("3 - Traços relacionados a tarefa");
-					quest = input.nextInt();
-
-					switch (quest) {
-
-					case 1:
-						System.out.println(
-								"Apesar de sua boa aparência (digasse de passagem), este não foi o motivo no qual eles te escolheram.\n");
-						break;
-
-					case 2:
-						System.out.println(
-								"Suas habilidades administrativas foram o motivo no qual eles te escolheram, sua inteligência para gerir e organizar nossa tribo será fundamental para a sobrevivência.\n");
-						break;
-
-					case 3:
-						System.out.println(
-								"Realmente, sua comunicação e persistência são admiráveis, mas este não é o motivo correto.\n");
-						break;
-
-					default:
-						System.out.println("Opção inválida!");
-					}
-
-				} while (quest != 2);
-
+				QuestioMarcos();
 			} else if (Falar == 2) {
 				// Conversa
 			} else if (Falar == 3) {
 				// conversa
 			}
-
 		} while (Falar != 4);
-		MapaVila(nome);
-		return 0;
 
 	}
 
-	public static int SituaTendas(String nome) { // Localizaçao das tendas
-		Scanner input = new Scanner(System.in);
+	public static void SituaTendas() { // Localizaçao das tendas
 		int Falar;
 
 		System.out.printf(" 1 - Falar com Dimmy%n 2 - Falar com  Jeff%n 3 - Marcia%n 4 - Sair%n");
@@ -136,12 +191,9 @@ public class ProjetoIntegrador {
 				// conversa
 			}
 		} while (Falar != 4);
-		MapaVila(nome);
-		return 0;
 	}
 
-	public static int SituaHospital(String nome) { // Localizaçao do Hospital
-		Scanner input = new Scanner(System.in);
+	public static void SituaHospital() { // Localizaçao do Hospital
 		int Falar;
 
 		System.out.printf(" 1 - Falar com Giga%n 2 - Falar com  Dammy%n 3 - Cecilia%n 4 - Sair%n");
@@ -155,12 +207,10 @@ public class ProjetoIntegrador {
 				// conversa
 			}
 		} while (Falar != 4);
-		MapaVila(nome);
-		return 0;
+		MapaVila();
 	}
 
-	public static int SituaPoco(String nome) {
-		Scanner input = new Scanner(System.in);
+	public static void SituaPoco() {
 		String texto;
 		int escolha;
 		texto = "A unica coisa que você enxerga é um velho poço que os moradores não ousam buscar água, não se sabe como está a qualidade da água....., ainda assim ela é altamente reflexiva..."
@@ -176,8 +226,7 @@ public class ProjetoIntegrador {
 		} else {
 			texto = "Foi uma boa escolha.......";
 		}
-		MapaVila(nome);
-		return 0;
+		MapaVila();
 	}
 
 	public static String tutorial() { // Tutorial do jogo, função criada para ser chamado no menu.
@@ -202,7 +251,6 @@ public class ProjetoIntegrador {
 	}
 
 	public static int menu() { // MENU com funções do TypeWrite e com o texto anexado em outras funções
-		Scanner input = new Scanner(System.in);
 		int menu1;
 		do {
 			System.out.printf(" 1 - Tutorial%n 2 - Jogar%n 3 - Créditos%n 4 - Sair%n");
@@ -244,7 +292,7 @@ public class ProjetoIntegrador {
 			System.out.printf("%c", texto.charAt(i));
 			if (texto.charAt(i) == '.') {
 				try {
-					Thread.sleep(300);
+					Thread.sleep(1);
 				} catch (InterruptedException ex) {
 					Thread.currentThread().interrupt();
 				}
@@ -259,11 +307,7 @@ public class ProjetoIntegrador {
 	}
 
 	public static void main(String[] args) { // Jogo
-		Scanner input = new Scanner(System.in);
-		String texto, nome = null;
-		int decisao;
-
-		List<String> memoria = new ArrayList<>();
+		int EscolhaCentral;
 
 		if (menu() == 2) {
 			texto = "Em um mundo devastado pelas escolhas do homem e com a humanidade beirando a extinção, algumas pessoas se destacam por tomadas de decisão incríveis e uma governança inabalável\n"
@@ -272,17 +316,16 @@ public class ProjetoIntegrador {
 			do {
 				System.out.printf("1 - Sim%n2 - Não %n");
 				System.out.print("Escolha: ");
-				decisao = input.nextInt();
-				if (decisao == 1) {
-					texto = "Sabia que uma das minhas crias me traria uma boa escolha, agora não me decepcione....\n -amy??d?a@\n\n";
+				EscolhaCentral = input.nextInt();
+				if (EscolhaCentral == 1) {
+					texto = "Sabia que uma das minhas crias me traria uma boa escolha, agora não me decepcione....\n -Amygdala\n\n";
 					TypeEffect(texto);
 					texto = "Me diga seu nome: ";
 					TypeEffect(texto);
 					nome = input.next();
-					memoria.add(nome);
 					break;
-				} else if (decisao == 2) {
-					texto = "Lamentável, tive experanças em você, pena que eu estava errada...., talvez um filho de outra vida possa me ajudar com a 'conquista'.....\n-a???d?a@#$@\n\n";
+				} else if (EscolhaCentral == 2) {
+					texto = "Lamentável, tive experanças em você, pena que eu estava errada...., talvez um filho de outra vida possa me ajudar com a 'conquista'.....\n -Amygdala\n\n";
 					TypeEffect(texto);
 					break;
 
@@ -290,7 +333,7 @@ public class ProjetoIntegrador {
 					System.out.println("Escolha uma opção válida...");
 				}
 
-			} while (decisao != 1 && decisao != 2);
+			} while (EscolhaCentral != 1 && EscolhaCentral != 2);
 			System.out.println("Moon Presence");
 			texto = "- Você acorda em meio a uma vila no meio de estilhaços de pedra e percebe estar cercado por prédios derrubados, avenidas que um dia foram populadas pelos mais luxuosos automóveis\n"
 					+ "agora estão vazias de vida e consumidas por uma mata densa que se entranha por cada fresta que for possível...\n"
@@ -313,7 +356,26 @@ public class ProjetoIntegrador {
 			System.out.println("\n-Mooon Presence");
 			texto = "Para onde quer ir?";
 			TypeEffect(texto);
-			MapaVila(nome);
+			do {
+				System.out.println("\n -Moon Presence");
+				texto = "O que vocêr quer fazer?\n"
+						+ " 1 - Acessar o Mapa do acampamento\n 2 - Dormir\n 3 - Desistir de tudo...\n";
+				TypeEffect(texto);
+				System.out.print("Responda: ");
+				EscolhaCentral = input.nextInt();
+				if (EscolhaCentral == 1) {
+					texto = "Carregando Mapa [#################################]\n";
+					TypeEffect(texto);
+					MapaVila();
+				} else if (EscolhaCentral == 2) {
+					System.out.println(" -" + nome);
+					texto = "ZZzzZZzZZZzzZZzzzZZzzzZZZZzzZz...\n";
+					TypeEffect(texto);
+				} else if (EscolhaCentral == 3) {
+					texto = ".....Okay, nem todos que vieram até aqui tiveram coragem de ficar, mas acredite em mim, o grande sonho só acaba quando se enfrenta a realidade.....\n";
+					TypeEffect(texto);
+				}
+			} while (EscolhaCentral != 3);
 
 		}
 
