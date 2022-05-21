@@ -4,6 +4,113 @@ import java.util.Scanner;
 
 public class ProjetoIntegrador {
 
+	public static int MapaVila() {
+		Scanner input = new Scanner(System.in);
+		int localizacao;
+
+		System.out.printf("%n 1 - Prefeitura%n 2 - Tendas%n 3 - Hospital%n 4 - Poço%n");
+		System.out.print("Responda: ");
+		localizacao = input.nextInt();
+		do {
+			if (localizacao == 1) {
+				SituaPrefeitura();
+			} else if (localizacao == 2) {
+				SituaTendas();
+			} else if (localizacao == 3) {
+				SituaHospital();
+			} else if (localizacao == 4) {
+				SituaPoco();
+
+			} else {
+				System.out.println("Digite um valor válido.");
+
+			}
+
+		} while (false);
+		return 0;
+
+	}
+
+	public static int SituaPrefeitura() { // Localizacao da prefeitura
+		Scanner input = new Scanner(System.in);
+		int Falar;
+
+		System.out.printf(" 1 - Falar com Marcos%n 2 - Falar com Leo%n 3 - Falar com Luca%n 4 - Sair%n");
+		Falar = input.nextInt();
+		do {
+			if (Falar == 1) {
+				// Conversa
+			} else if (Falar == 2) {
+				// Conversa
+			} else if (Falar == 3) {
+				// conversa
+			}
+
+		} while (Falar != 4);
+		MapaVila();
+		return 0;
+
+	}
+
+	public static int SituaTendas() { // Localizaçao das tendas
+		Scanner input = new Scanner(System.in);
+		int Falar;
+
+		System.out.printf(" 1 - Falar com Dimmy%n 2 - Falar com  Jeff%n 3 - Marcia%n 4 - Sair%n");
+		Falar = input.nextInt();
+		do {
+			if (Falar == 1) {
+				// conversa
+			} else if (Falar == 2) {
+				// conversa
+			} else if (Falar == 3) {
+				// conversa
+			}
+		} while (Falar != 4);
+		MapaVila();
+		return 0;
+	}
+
+	public static int SituaHospital() { // Localizaçao do Hospital
+		Scanner input = new Scanner(System.in);
+		int Falar;
+
+		System.out.printf(" 1 - Falar com Giga%n 2 - Falar com  Dammy%n 3 - Cecilia%n 4 - Sair%n");
+		Falar = input.nextInt();
+		do {
+			if (Falar == 1) {
+				// conversa
+			} else if (Falar == 2) {
+				// conversa
+			} else if (Falar == 3) {
+				// conversa
+			}
+		} while (Falar != 4);
+		MapaVila();
+		return 0;
+	}
+
+	public static int SituaPoco() {
+		Scanner input = new Scanner(System.in);
+		String texto;
+		int escolha;
+		texto = "A unica coisa que você enxerga é um velho poço que os moradores não ousam buscar água, não se sabe como está a qualidade da água....., ainda assim ela é altamente reflexiva..."
+				+ "uma voz memorável pede para você olhar o poço, mas você não confia muito nisso...";
+		TypeEffect(texto);
+		System.out.println("-Mooon Presence");
+		texto = "Se eu fosse você não olharia, mas como não sou.....\n";
+		System.out.println("O que você vai fazer?\n 1 - Olhar para o poço\n 2 - Sair");
+		escolha = input.nextInt();
+		if (escolha == 1) {
+			// Desafio que drena as 3 vidas de uma vez.
+
+		} else {
+			texto = "Foi uma boa escolha.......";
+		}
+		MapaVila();
+		return 0;
+	}
+
 	public static String tutorial() { // Tutorial do jogo, função criada para ser chamado no menu.
 		String Tutorial = "O jogo não é algo complexo, mas exige que você fique atento e pense nas suas ações, cada decisão importa\n"
 				+ "É tudo bem intuitivo, você vai pegar o jeito conforme o andar da história, basta selecionar uma das opções presente na tela quando solicitado, que estará tudo bem\n"
@@ -25,7 +132,7 @@ public class ProjetoIntegrador {
 		return Sair;
 	}
 
-	public static int menu() {
+	public static int menu() { // MENU com funções do TypeWrite e com o texto anexado em outras funções
 		Scanner input = new Scanner(System.in);
 		int menu1;
 		do {
@@ -84,7 +191,7 @@ public class ProjetoIntegrador {
 
 	public static void main(String[] args) { // Jogo
 		Scanner input = new Scanner(System.in);
-		String texto;
+		String texto, nome = null;
 		int decisao;
 
 		if (menu() == 2) {
@@ -96,12 +203,16 @@ public class ProjetoIntegrador {
 				System.out.print("Escolha: ");
 				decisao = input.nextInt();
 				if (decisao == 1) {
-					texto = "Sabia que uma das minhas crias me traria uma boa escolha, agora não me decepcione....\n -amy??d?a@\\n\\n";
+					texto = "Sabia que uma das minhas crias me traria uma boa escolha, agora não me decepcione....\n -amy??d?a@\n\n";
 					TypeEffect(texto);
+					texto = "Me diga seu nome: ";
+					TypeEffect(texto);
+					nome = input.next();
 					break;
 				} else if (decisao == 2) {
 					texto = "Lamentável, tive experanças em você, pena que eu estava errada...., talvez um filho de outra vida possa me ajudar com a 'conquista'.....\n-a???d?a@#$@\n\n";
 					TypeEffect(texto);
+					break;
 
 				} else {
 					System.out.println("Escolha uma opção válida...");
@@ -109,13 +220,27 @@ public class ProjetoIntegrador {
 
 			} while (decisao != 1 && decisao != 2);
 			System.out.println("Moon Presence");
-			texto = "- Você acorda em meio a uma vila no meio de estilhaços de pedra e percebe estar sercado por prédios derrubados, avenidas que um dia foram populadas pelos mais luxuosos automóveis"
+			texto = "- Você acorda em meio a uma vila no meio de estilhaços de pedra e percebe estar cercado por prédios derrubados, avenidas que um dia foram populadas pelos mais luxuosos automóveis\n"
 					+ "agora estão vazias de vida e consumidas por uma mata densa que se entranha por cada fresta que for possível...\n"
 					+ "ao longe você avista um brilho de tom alaranjado...., quando você percebe é um grupo de pessoas chegando ao território, algumas montadas em cavalos, outras andando.. mas uma coisa\n"
 					+ "elas tinham em comum.... estavam todas com um semblante pesado e segurando pedaços de pano que pareciam ser partes de suas roupas rasgadas....\n"
 					+ "até que uma pequena garota se aproxima de um senhor, bem velho, ali por volta dos seus 85 anos, a pessoa mais velha do vilarejo, que demonstrou um sorriso que foi deteriorado por\n"
 					+ "uma das cenas mais tristes em sua vida.... Em meio aos panos estava um braço, você só consegue notar uma tatuagem que já havia visto antes, e um relógio que lhe refrescava a memória\n"
-					+ "Jenkins.... ERA ISSO, Jenkins um maduro caçador, que dessa vez, não voltou inteiro da caçada..... ";
+					+ "Jenkins.... ERA ISSO, Jenkins um maduro caçador, que dessa vez, não voltou inteiro da caçada..... \n\n";
+			TypeEffect(texto);
+			System.out.println("-Mooon Presence");
+			texto = "Um Homem lhe puxa pelo ombro e lhe diz...\n ";
+			TypeEffect(texto);
+			System.out.println("\n-Marcos");
+			texto = "Jovem, tenho que conversar com você, a situação não é das melhores então me encontre na prefeitura, tenho assuntos sérios a tratar com você\n";
+			TypeEffect(texto);
+			System.out.println("\n-" + nome);
+			texto = "O...kay?";
+			TypeEffect(texto);
+			System.out.println("\n-Mooon Presence");
+			texto = "Para onde quer ir?";
+			TypeEffect(texto);
+			MapaVila();
 
 		}
 
