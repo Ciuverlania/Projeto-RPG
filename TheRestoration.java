@@ -4,47 +4,48 @@ public class TheRestoration {
 	public static int menu() {
 		Scanner input = new Scanner(System.in);
 		int menu1;
+		String nome;
 
 		System.out.println(
-				"Em um mundo devastado pelas escolhas do homem e com a humanidade em beira a extinção, \nalgumas pessoas se destacam pela sua governança e tomada de atitude que beiram o nirvana.");
-		System.out.println(" Você seria capaz de gerir e trazer a tona o poder da raça humana novamente?");
+				"Em um mundo devastado pelas escolhas do homem e com a humanidade em beira a extinÃ§Ã£o, \nalgumas pessoas se destacam pela sua governanÃ§a e tomada de atitude que beiram o nirvana.");
+		System.out.println(" VocÃª seria capaz de gerir e trazer a tona o poder da raÃ§a humana novamente?");
 		System.out.println();
 		System.out.printf("Insira seu primeiro nome: ");
 		String Nome = input.next();
 		System.out.println();
 
 		do {
-			System.out.printf(" 1 - Tutorial%n 2 - Jogar%n 3 - Créditos%n 4 - Sair%n");
-			System.out.print("Selecione uma opção: ");
+			System.out.printf(" 1 - Tutorial%n 2 - Jogar%n 3 - CrÃ©ditos%n 4 - Sair%n");
+			System.out.print("Selecione uma opÃ§Ã£o: ");
 			menu1 = input.nextInt();
 			System.out.println("");
 
 			switch (menu1) {
 			case 1:
-				System.out.println("O jogo não é algo complexo, mas exige que você se esforce.");
+				System.out.println("O jogo nÃ£o Ã© algo complexo, mas exige que vocÃª se esforce.");
 				System.out.println(
-						"É tudo bem intuitivo, você vai pegar o jeito conforme o andar da história, basta selecionar uma das opções presente na tela quando solicitado, que estará tudo bem.");
+						"Ã‰ tudo bem intuitivo, vocÃª vai pegar o jeito conforme o andar da histÃ³ria, basta selecionar uma das opÃ§Ãµes presente na tela quando solicitado, que estarÃ¡ tudo bem.");
 				System.out.println(
-						"Converse e preste bastante atenção nos NPC's do jogo, eles podem te dar dicas valiosas para a conclusão de um cenário\n");
+						"Converse e preste bastante atenÃ§Ã£o nos NPC's do jogo, eles podem te dar dicas valiosas para a conclusÃ£o de um cenÃ¡rio\n");
 				break;
 			case 2:
 
 				break;
 			case 3:
 				System.out.println(
-						"Esse projeto foi feito com intuito de auxiliar os alunos em geral, o grupo em aprender mais em programação java e os alunos com as aulas de administração.");
+						"Esse projeto foi feito com intuito de auxiliar os alunos em geral, o grupo em aprender mais em programaÃ§Ã£o java e os alunos com as aulas de administraÃ§Ã£o.");
 				System.out.println(
 						"Tudo isso foi desenvolvido pelo grupo 3 composto por Enzo Costa, Bianca de Oliveira, Ciuverlania Andrade e Eduardo Oliveira.");
 				System.out.println(
-						"Gostaira de deixar menções honrosas aos professores que nos auxiliaram durante essa caminhada. Obrigado Eduarto 'Takeo' e Keli Cristiane");
+						"Gostaira de deixar menÃ§Ãµes honrosas aos professores que nos auxiliaram durante essa caminhada. Obrigado Eduarto 'Takeo' e Keli Cristiane");
 				System.out.println(
-						"E não esquecemos dos professores que nos apoiaram com conteúdo além do projeto, como o Marcio (Matemática), Fernando (Algoritmos), Anderson (Conceitos da computação) e  Livia (Pesquisa Tecnologia e Sociedade)\n");
+						"E nÃ£o esquecemos dos professores que nos apoiaram com conteÃºdo alÃ©m do projeto, como o Marcio (MatemÃ¡tica), Fernando (Algoritmos), Anderson (Conceitos da computaÃ§Ã£o) e  Livia (Pesquisa Tecnologia e Sociedade)\n");
 				break;
 			case 4:
-				System.out.println("O mundo contou com você.... e você os abandonou!");
+				System.out.println("O mundo contou com vocÃª.... e vocÃª os abandonou!");
 				break;
 			default:
-				System.out.println("Esolhe uma opção válida ae pô, faça juz ao seu nome" + Nome);
+				System.out.println("Esolhe uma opÃ§Ã£o vÃ¡lida ae pÃ´, faÃ§a juz ao seu nome" + Nome);
 
 			}
 
@@ -78,45 +79,45 @@ public class TheRestoration {
 		int desafio1 =0;
 		int desafio2=0;
 
-		System.out.println("Sabemos que você possui muitos conhecimentos em administração, e é por isso que o nomeamos como líder de nossa tribo, tenho certeza de que sua ajuda nos guiará rumo à vitória, \nA tribo te escolheu por meio da Teoria da Personalidade, onde percebendo o seu nível de conhecimento em administração te apontaram como um bom líder, qual foi o meio utilizado para fazer está escolha?\n");
+		System.out.println("Sabemos que vocÃª possui muitos conhecimentos em administraÃ§Ã£o, e Ã© por isso que o nomeamos como lÃ­der de nossa tribo, tenho certeza de que sua ajuda nos guiarÃ¡ rumo Ã  vitÃ³ria, \nA tribo te escolheu por meio da Teoria da Personalidade, onde percebendo o seu nÃ­vel de conhecimento em administraÃ§Ã£o te apontaram como um bom lÃ­der, qual foi o meio utilizado para fazer estÃ¡ escolha?\n");
 		
 		do {
-			System.out.println("1-Traços Físicos");
-			System.out.println("2-Traços Sociais");
-			System.out.println("3-Traços relacionados a tarefa");
+			System.out.println("1-TraÃ§os FÃ­sicos");
+			System.out.println("2-TraÃ§os Sociais");
+			System.out.println("3-TraÃ§os relacionados a tarefa");
 			desafio1 = entrada.nextInt();
 		
 		switch(desafio1) {
 		
 		case 1:
-			System.out.println("Apesar de sua boa aparência (digasse de passagem), este não foi o motivo no qual eles te escolheram.\n");
+			System.out.println("Apesar de sua boa aparÃªncia (digasse de passagem), este nÃ£o foi o motivo no qual eles te escolheram.\n");
 			break;
 			
 		case 2:
-			System.out.println("Suas habilidades administrativas foram o motivo no qual nós te escolhemos, sua inteligência para gerir e organizar nossa tribo será fundamental para a sobrevivência.\n");
+			System.out.println("Suas habilidades administrativas foram o motivo no qual nÃ³s te escolhemos, sua inteligÃªncia para gerir e organizar nossa tribo serÃ¡ fundamental para a sobrevivÃªncia.\n");
 			
 		case 3: 
-			System.out.println("Realmente, sua comunicação e persistência são admiráveis, mas este não é o motivo correto.\n");
+			System.out.println("Realmente, sua comunicaÃ§Ã£o e persistÃªncia sÃ£o admirÃ¡veis, mas este nÃ£o Ã© o motivo correto.\n");
 		
 			default:
-				System.out.println("Opção inválida!");
+				System.out.println("OpÃ§Ã£o invÃ¡lida!");
 		}
 
 		}while (desafio1 != 2);
 		
-		System.out.println("\nO mundo já não é o mesmo, e voltamos aos primórdios da vida humana. Tem sido difícil encontrar maneiras para que a tribo mantenha-se unida e organizada.Por isso, como líder desta tribo você deve escolher qual é a melhor forma de administrar nossa tribo.\nEntão nos diga, qual a sua decisão?");
+		System.out.println("\nO mundo jÃ¡ nÃ£o Ã© o mesmo, e voltamos aos primÃ³rdios da vida humana. Tem sido difÃ­cil encontrar maneiras para que a tribo mantenha-se unida e organizada.Por isso, como lÃ­der desta tribo vocÃª deve escolher qual Ã© a melhor forma de administrar nossa tribo.\nEntÃ£o nos diga, qual a sua decisÃ£o?");
 		
 		do{
-			System.out.println("1-Administração Científica");
-			System.out.println("Administração Clássica");
+			System.out.println("1-AdministraÃ§Ã£o CientÃ­fica");
+			System.out.println("AdministraÃ§Ã£o ClÃ¡ssica");
 			desafio2 = entrada.nextInt();
 			
 			switch(desafio2) {
 			
 			case 1: 
-				System.out.println("Na administração científica...........");
+				System.out.println("Na administraÃ§Ã£o cientÃ­fica...........");
 			case 2:
-			System.out.println("Na administração clássica.....");
+			System.out.println("Na administraÃ§Ã£o clÃ¡ssica.....");
 			}
 			}while (desafio2 != 2);
 
