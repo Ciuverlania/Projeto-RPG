@@ -113,8 +113,7 @@ public class ProjetoIntegrador {
 			} while (opcao != 3);
 			System.out.println(memoria.get(1));
 		} else if (desafio == 2) {
-			else if (Selecionado == 2) {
-				
+
 			int opcao;
 
 			do {
@@ -218,11 +217,16 @@ public class ProjetoIntegrador {
 		Falar = input.nextInt();
 		do {
 			if (Falar == 1) {
-				// conversa
+			        texto ="Dimmy está sentado com a cabeça baixa e a mão em sua testa, você entra e ele parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda.. Dimmy então diz\n"
+			        + "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto. Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
+				
 			} else if (Falar == 2) {
-				// conversa
+				texto = "Jeff está sentado com a cabeça baixa e a mão em sua testa, você entra e ele parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda.. Jeff então diz\n"
+				+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto. Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?"
+
 			} else if (Falar == 3) {
-				// conversa
+				texto = "Marcia está sentada com a cabeça baixa e a mão em sua testa, você entra e ela parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda.. Marcia então diz\n"
+				+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto. Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
 			}
 		} while (Falar != 4);
 	}
