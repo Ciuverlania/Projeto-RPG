@@ -71,13 +71,13 @@ public class TheRestoration {
 	public static void main(String[] args) {
 
 		if (menu() == 2) {
-			System.out.println("Seja Bem Vindo \" + \"nome do jogador\" + \" ao Mundo de THE RESTORATION");
+			System.out.println("Seja Bem Vindo " + nome  + " ao Mundo de THE RESTORATION");
 
 		}
 		Scanner entrada = new Scanner(System.in);
 		
-		int desafio1 =0;
-		int desafio2=0;
+		int desafio1 = 0;
+		int desafio2 = 0;
 
 		System.out.println("Sabemos que você possui muitos conhecimentos em administração, e é por isso que o nomeamos como líder de nossa tribo, tenho certeza de que sua ajuda nos guiará rumo à vitória, \nA tribo te escolheu por meio da Teoria da Personalidade, onde percebendo o seu nível de conhecimento em administração te apontaram como um bom líder, qual foi o meio utilizado para fazer está escolha?\n");
 		
@@ -90,7 +90,7 @@ public class TheRestoration {
 		switch(desafio1) {
 		
 		case 1:
-			System.out.println("Apesar de sua boa aparência (digasse de passagem), este não foi o motivo no qual eles te escolheram.\n");
+			System.out.println("Apesar de sua boa aparência (digasse de passagem), este não foi o motivo pelo qual nós te escolheramos.\n");
 			break;
 			
 		case 2:
@@ -105,7 +105,7 @@ public class TheRestoration {
 
 		}while (desafio1 != 2);
 		
-		System.out.println("\nO mundo já não é o mesmo, e voltamos aos primórdios da vida humana. Tem sido difícil encontrar maneiras para que a tribo mantenha-se unida e organizada.Por isso, como líder desta tribo você deve escolher qual é a melhor forma de administrar nossa tribo.\nEntão nos diga, qual a sua decisão?");
+		System.out.println("\nO mundo já não é o mesmo, e voltamos aos primórdios da vida humana. Tem sido difícil encontrar maneiras para que a tribo mantenha-se unida e organizada.Por isso, como líder desta tribo você deve escolher qual é a melhor forma de administrar nossa tribo.\nEntão nos diga, qual a sua decisão?"\n);
 		
 		do{
 			System.out.println("1-Administração Científica");
@@ -115,9 +115,9 @@ public class TheRestoration {
 			switch(desafio2) {
 			
 			case 1: 
-				System.out.println("Na administração científica...........");
+				System.out.println("Boa escolha, com esse modelo você sera capaz de obter resultados com o menor desperdício de tempo, esforço e materiais. Na administração científica como você já sabe buscaremos a produtividade.\n");
 			case 2:
-			System.out.println("Na administração clássica.....");
+			System.out.println("Apesar de isso não ter agradado os outros membros da tribo, temos certeza que o nosso líder sabe o que está fazendo. Muitas pessoas da tribo acreditam que separar os setores e os fazer trabalhar em funções repetitivas não seja o ideal, mas acreditaremos na sua escolha!");
 			}
 			}while (desafio2 != 2);
 
