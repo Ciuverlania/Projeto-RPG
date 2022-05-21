@@ -95,12 +95,14 @@ public class TheRestoration {
 			
 		case 2:
 			System.out.println("Suas habilidades administrativas foram o motivo no qual nós te escolhemos, sua inteligência para gerir e organizar nossa tribo será fundamental para a sobrevivência.\n");
-			
+			break;
+				
 		case 3: 
 			System.out.println("Realmente, sua comunicação e persistência são admiráveis, mas este não é o motivo correto.\n");
+			break;
 		
 			default:
-				System.out.println("Opção inválida!");
+				System.out.println("Escolha uma opção válida!");
 		}
 
 		}while (desafio1 != 2);
@@ -116,8 +118,15 @@ public class TheRestoration {
 			
 			case 1: 
 				System.out.println("Boa escolha, com esse modelo você sera capaz de obter resultados com o menor desperdício de tempo, esforço e materiais. Na administração científica como você já sabe buscaremos a produtividade.\n");
+				break;
+					
 			case 2:
 			System.out.println("Apesar de isso não ter agradado os outros membros da tribo, temos certeza que o nosso líder sabe o que está fazendo. Muitas pessoas da tribo acreditam que separar os setores e os fazer trabalhar em funções repetitivas não seja o ideal, mas acreditaremos na sua escolha!");
+				break;
+					
+				default:
+					System.out.println("Escolha uma opção válida!");
+					
 			}
 			}while (desafio2 != 2);
 
