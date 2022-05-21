@@ -6,7 +6,7 @@ public class TheRestoration {
 		int menu1;
 
 		System.out.println(
-				" Em um mundo devastado pelas escolhas do homem e com a humanidade em beira a extinção, \nalgumas pessoas se destacam pela sua governança e tomada de atitude que beiram o nirvana.");
+				"Em um mundo devastado pelas escolhas do homem e com a humanidade em beira a extinção, \nalgumas pessoas se destacam pela sua governança e tomada de atitude que beiram o nirvana.");
 		System.out.println(" Você seria capaz de gerir e trazer a tona o poder da raça humana novamente?");
 		System.out.println();
 		System.out.printf("Insira seu primeiro nome: ");
@@ -76,6 +76,7 @@ public class TheRestoration {
 		Scanner entrada = new Scanner(System.in);
 		
 		int desafio1 =0;
+		int desafio2=0;
 
 		System.out.println("Sabemos que você possui muitos conhecimentos em administração, e é por isso que o nomeamos como líder de nossa tribo, tenho certeza de que sua ajuda nos guiará rumo à vitória, \nA tribo te escolheu por meio da Teoria da Personalidade, onde percebendo o seu nível de conhecimento em administração te apontaram como um bom líder, qual foi o meio utilizado para fazer está escolha?\n");
 		
@@ -102,7 +103,24 @@ public class TheRestoration {
 		}
 
 		}while (desafio1 != 2);
+		
+		System.out.println("\nO mundo já não é o mesmo, e voltamos aos primórdios da vida humana. Tem sido difícil encontrar maneiras para que a tribo mantenha-se unida e organizada.Por isso, como líder desta tribo você deve escolher qual é a melhor forma de administrar nossa tribo.\nEntão nos diga, qual a sua decisão?");
+		
+		do{
+			System.out.println("1-Administração Científica");
+			System.out.println("Administração Clássica");
+			desafio2 = entrada.nextInt();
+			
+			switch(desafio2) {
+			
+			case 1: 
+				System.out.println("Na administração científica...........");
+			case 2:
+			System.out.println("Na administração clássica.....");
+			}
+			}while (desafio2 != 2);
 
-	}
+	
 
+}
 }
