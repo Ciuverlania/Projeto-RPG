@@ -163,7 +163,62 @@ public class ProjetoIntegrador {
 
 		} else if (desafio == 3) {
 
+			texto = "\n\nDesafio\n"
+						+ "Como você deve saber, a Administração Científica foi desenvolvida por Frederick Taylor e por isso é frequentemente chamada também de Taylorismo\n"
+						+ "Vamos testar ainda mais seus conhecimentos!"
+						+ "Responda: ";
+				TypeEffect(texto);
+			do {	
+				System.out.println("Qual das opções a seguir descreve uma característica do Taylorismo?\n");
+				System.out.println("1 - Falta de padronização na linha de produção");
+				System.out.println("2 - Fiscalização dos funcionários");
+				System.out.println("3 - Criação de escolas de ofício");
+								
+				opcao = input.nextInt();
+
+				switch (opcao) {
+				case 1:
+					System.out.println("Temo que você tenha errado...");
+					break;
+				case 2:
+					System.out.println("Correto! Não esperava menos de você");
+					break;
+				case 3:
+					System.out.println("Parece que você está confundindo o Taylorismo com outro modelo de admnistração");
+					break;
+				default:
+					System.out.println("Escolha uma opção válida.");
+			} while (opcao != 2);
+			
+
 		} else if (desafio == 4) {
+
+			texto = "\n\nDesafio\n"
+						+ "Muito bem, vamos partir então para a Administração Clássica. Esta já foi idealizada por Henri Fayol e também é conhecida como Fayolismo\n"
+						+ "Mas você certamente já sabia disso."
+						+ "Portanto, responda: ";
+				TypeEffect(texto);
+			do {	
+				System.out.println("Qual das opções a seguir descreve uma característica do Fayolismo?\n");
+				System.out.println("1 - Estudo do tempo de execução dos trabalhos");
+				System.out.println("2 - A utilização de apenas um departamento na linha de produção");
+				System.out.println("3 - Criação de turnos de trabalho");
+								
+				opcao = input.nextInt();
+
+				switch (opcao) {
+				case 1:
+					System.out.println("Incorreto. Sinto que você ainda está com o Taylorismo em mente...");
+					break;
+				case 2:
+					System.out.println("É uma pena, mas não. A separação em departamentos é uma forte característica do Fayolismo");
+					break;
+				case 3:
+					System.out.println("Correto!");
+					break;
+				default:
+					System.out.println("Escolha uma opção válida.");
+			} while (opcao != 3);
 
 		} else if (desafio == 5) {
 
