@@ -17,7 +17,7 @@ public class ProjetoIntegrador {
 		texto = "Seja Bem Vindo(a) " + nome + " algumas coisas me preocupam, ainda mais depois da morte do seu pai....";
 		TypeEffect(texto);
 		texto = "Sabemos que você possui muitos conhecimentos em administração, e é por isso que o nomeamos como líder de nossa tribo, tenho certeza de que sua ajuda nos guiará rumo à vitória,\n"
-				+ "A tribo te escolheu por meio da Teoria da Personalidade, onde percebendo o seu nível de conhecimento em administração "
+				+ "A tribo te escolheu por meio da Teoria da Personalidade, onde percebendo o seu nível de conhecimento em administração\n"
 				+ "te apontaram como um bom líder... ponderamos várias coisas mas adivinha só qual foi o meio utilizado para fazer está escolha?\n";
 		TypeEffect(texto);
 
@@ -74,6 +74,24 @@ public class ProjetoIntegrador {
 		}
 		desafio = 1;
 		desafios();
+		memoria.add("okay");
+	}
+
+	public static void QuestioDimmy() {
+		if (memoria.get(0) == "okay") {
+
+			texto = "Dimmy está sentado com a cabeça baixa e a mão em sua testa, você entra e ele parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda.. Dimmy então diz\n"
+					+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto.\n"
+					+ "Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
+			TypeEffect(texto);
+
+			desafio = 2;
+			desafios();
+		} else {
+			texto = "Você ainda precisa conversar com o Marcos na prefeitura....";
+			TypeEffect(texto);
+
+		}
 	}
 
 	public static void desafios() {
@@ -114,39 +132,8 @@ public class ProjetoIntegrador {
 			System.out.println(memoria.get(1));
 		} else if (desafio == 2) {
 
-			int opcao;
+			System.out.println("pupupipupu");
 
-			do {
-				System.out.println("1- Todos estão pedindo por isso, então o que mais eu poderia fazer?");
-				System.out.println("2- Me escolheram como líder, e devo honrar isto, indo além do que me é solicitado.");
-				System.out.println("3- Existe diferença?");
-				System.out.println("4- Eu nunca nego um desafio.");
-				System.out.print("Escolha uma opção: ");
-				opcao = input.nextInt();
-
-				switch (opcao) {
-
-				case 1:
-					System.out.println("Anh??");
-					break;
-
-				case 2:
-					System.out.println("Muito bem, é por isso que te escolhemos como nosso líder!");
-					break;
-
-				case 3:
-					System.out.println("?-?...... Poxa, isso não devia ser tão difícil....");
-					break;
-
-				case 4:
-					System.out.println("Vamos lá, o seu ego não devia ser o motivo de sua escolha.");
-					break;
-
-				default:
-					System.out.println("Escolha uma opção válida.");
-
-				}
-			} while (opcao != 2);
 		} else if (desafio == 3) {
 
 		} else if (desafio == 4) {
@@ -212,23 +199,24 @@ public class ProjetoIntegrador {
 
 	public static void SituaTendas() { // Localizaçao das tendas
 		int Falar;
-
-		System.out.printf(" 1 - Falar com Dimmy%n 2 - Falar com  Jeff%n 3 - Marcia%n 4 - Sair%n");
-		Falar = input.nextInt();
 		do {
+			System.out.printf(" 1 - Falar com Dimmy%n 2 - Falar com  Jeff%n 3 - Marcia%n 4 - Sair%n");
+			Falar = input.nextInt();
 			if (Falar == 1) {
-			        texto ="Dimmy está sentado com a cabeça baixa e a mão em sua testa, você entra e ele parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda.. Dimmy então diz\n"
-			        + "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto. Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
-				
+				QuestioDimmy();
 			} else if (Falar == 2) {
 				texto = "Jeff está sentado com a cabeça baixa e a mão em sua testa, você entra e ele parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda.. Jeff então diz\n"
-				+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto. Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?"
-
+						+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto.\n"
+						+ "Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
 			} else if (Falar == 3) {
 				texto = "Marcia está sentada com a cabeça baixa e a mão em sua testa, você entra e ela parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda.. Marcia então diz\n"
-				+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto. Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
+						+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto.\n"
+						+ "Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
+			} else {
+				System.out.println("saindo");
 			}
 		} while (Falar != 4);
+
 	}
 
 	public static void SituaHospital() { // Localizaçao do Hospital
