@@ -42,10 +42,10 @@ public class ProjetoIntegrador {
 				texto = "Suas habilidades administrativas foram o motivo no qual eles te escolheram, sua inteligência para gerir e organizar nossa tribo será fundamental para a sobrevivência.\n";
 				TypeEffect(texto);
 				System.out.println(" -" + nome);
-				texto = "Acho isso um pouco de mais pra mim\n";
+				texto = "Acho isso um pouco demais pra mim\n";
 				TypeEffect(texto);
 				break;
-			case 3:
+			case 3:git
 				System.out.println(" -Marcos");
 				texto = "Realmente, sua comunicação e persistência são admiráveis, mas este não é o motivo correto.\n";
 				TypeEffect(texto);
@@ -132,7 +132,34 @@ public class ProjetoIntegrador {
 			System.out.println(memoria.get(1));
 		} else if (desafio == 2) {
 
-			System.out.println("pupupipupu");
+			System.out.println("Com base nos pensamentos de Geertz, motivação e conformidade são diferentes. Eu espero que você saiba a resposta, pois isso nos dira se estamos prontos ou não para explorar o território seguindo seus passos. Diga, qual a sua motivação para sair da tribo?");
+
+			do {
+				System.out.println("1- Todos estão pedindo por isso, então o que mais eu poderia fazer?");
+				System.out
+						.println("2- Me escolheram como líder, e devo honrar isto, indo além do que me é solicitado.");
+				System.out.println("3- Existe diferença?");
+				System.out.println("4- Eu nunca nego um desafio.");
+				System.out.print("Escolha uma opção: ");
+				opcao = input.nextInt();
+				switch (opcao) {
+				case 1:
+					System.out.println("Anh??");
+					break;
+				case 2:
+					System.out.println("Muito bem, é por isso que te escolhemos como nosso líder!");
+					break;
+				case 3:
+					System.out.println("?-?...... Poxa, isso não devia ser tão difícil....");
+					break;
+				case 4:
+					System.out.println("Vamos lá, o seu ego não devia ser o motivo de sua escolha.");
+					break;
+				default:
+					System.out.println("Escolha uma opção válida.");
+				}
+			} while (opcao != 2);
+
 
 		} else if (desafio == 3) {
 
@@ -205,13 +232,8 @@ public class ProjetoIntegrador {
 			if (Falar == 1) {
 				QuestioDimmy();
 			} else if (Falar == 2) {
-				texto = "Jeff está sentado com a cabeça baixa e a mão em sua testa, você entra e ele parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda.. Jeff então diz\n"
-						+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto.\n"
-						+ "Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
-			} else if (Falar == 3) {
-				texto = "Marcia está sentada com a cabeça baixa e a mão em sua testa, você entra e ela parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda.. Marcia então diz\n"
-						+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto.\n"
-						+ "Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
+				texto = "Me deixe continuar montando isto daqui, tudo bem?\nEle diz isto enquanto encaixa algumas peças de quebradas de algo que nem ele parece saber.";
+				texto = "Marcia está tão destraída, que não percebe sua presença...";
 			} else {
 				System.out.println("saindo");
 			}
