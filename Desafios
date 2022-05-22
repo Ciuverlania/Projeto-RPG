@@ -5,6 +5,8 @@ Scanner input = new Scanner(System.in);
 
 		} else if (Selecionado == 2) {
 			int opcao;
+			
+			System.out.println("Com base nos pensamentos de Geertz, motivação e conformidade são diferentes. Eu espero que você saiba a resposta, pois isso nos dira se estamos prontos ou não para explorar o território seguindo seus passos. Diga, qual a sua motivação para sair da tribo?");
 
 			do {
 				System.out.println("1- Todos estão pedindo por isso, então o que mais eu poderia fazer?");
