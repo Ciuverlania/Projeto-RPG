@@ -42,10 +42,10 @@ public class ProjetoIntegrador {
 				texto = "Suas habilidades administrativas foram o motivo no qual eles te escolheram, sua inteligência para gerir e organizar nossa tribo será fundamental para a sobrevivência.\n";
 				TypeEffect(texto);
 				System.out.println(" -" + nome);
-				texto = "Acho isso um pouco demais pra mim\n";
+				texto = "Acho isso um pouco de mais pra mim\n";
 				TypeEffect(texto);
 				break;
-			case 3:git
+			case 3:
 				System.out.println(" -Marcos");
 				texto = "Realmente, sua comunicação e persistência são admiráveis, mas este não é o motivo correto.\n";
 				TypeEffect(texto);
@@ -78,20 +78,29 @@ public class ProjetoIntegrador {
 	}
 
 	public static void QuestioDimmy() {
-		if (memoria.get(0) == "okay") {
+		int opcao = 0;
 
-			texto = "Dimmy está sentado com a cabeça baixa e a mão em sua testa, você entra e ele parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda.. Dimmy então diz\n"
-					+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto.\n"
-					+ "Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
-			TypeEffect(texto);
-
+		texto = "Dimmy está sentado com a cabeça baixa e a mão em sua testa, você entra e ele parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda...";
+		TypeEffect(texto);
+		System.out.println(" -Dimmy");
+		texto = "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto....\n"
+				+ "Algumas poucas pessoas que foram em busca de seus parentes não voltaram.... ";
+		TypeEffect(texto);
+		System.out.println(" -" + nome);
+		texto = "Sinto muito Dimmy, depois da catastrofe não nos restaram muitas opções... ainda mais agora que meu pai morreu e Marcos exigiu que eu governe no lugar de meu pai... \n";
+		TypeEffect(texto);
+		System.out.println(" -Dimmy");
+		texto = "talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
+		System.out.println(" 1 - Sim\n 2 - Não");
+		opcao = input.nextInt();
+		if (opcao == 1) {
 			desafio = 2;
 			desafios();
 		} else {
-			texto = "Você ainda precisa conversar com o Marcos na prefeitura....";
-			TypeEffect(texto);
-
+			System.out.println("-Dimmy");
+			texto = "Entendo, mas lembre-se, não há ninguém melhor que eu para te mostrar todo o lugar....";
 		}
+
 	}
 
 	public static void desafios() {
@@ -132,92 +141,101 @@ public class ProjetoIntegrador {
 			System.out.println(memoria.get(1));
 		} else if (desafio == 2) {
 
-			System.out.println("Com base nos pensamentos de Geertz, motivação e conformidade são diferentes. Eu espero que você saiba a resposta, pois isso nos dira se estamos prontos ou não para explorar o território seguindo seus passos. Diga, qual a sua motivação para sair da tribo?");
+			texto = "Com base nos pensamentos de Geertz, motivação e conformidade são diferentes.\n"
+					+ " Eu espero que você saiba a resposta, pois isso nos dira se estamos prontos ou não para explorar o território seguindo seus passos.\n"
+					+ "Diga, qual a sua motivação para sair da tribo?";
+			TypeEffect(texto);
 
 			do {
-				System.out.println("1- Todos estão pedindo por isso, então o que mais eu poderia fazer?");
-				System.out
-						.println("2- Me escolheram como líder, e devo honrar isto, indo além do que me é solicitado.");
-				System.out.println("3- Existe diferença?");
-				System.out.println("4- Eu nunca nego um desafio.");
+				System.out.println(" 1 - Todos estão pedindo por isso, então o que mais eu poderia fazer?\n"
+						+ " 2 - Me escolheram como líder, e devo honrar isto, indo além do que me é solicitado.\n"
+						+ " 3 - Existe diferença?\n" + "4- Eu nunca nego um desafio.\n");
+
 				System.out.print("Escolha uma opção: ");
 				opcao = input.nextInt();
 				switch (opcao) {
 				case 1:
-					System.out.println("Anh??");
+					texto = "Anh??";
+					TypeEffect(texto);
 					break;
 				case 2:
-					System.out.println("Muito bem, é por isso que te escolhemos como nosso líder!");
+					texto = "Muito bem, é por isso que te escolhemos como nosso líder!";
+					TypeEffect(texto);
 					break;
 				case 3:
-					System.out.println("?-?...... Poxa, isso não devia ser tão difícil....");
+					texto = "?-?...... Poxa, isso não devia ser tão difícil....";
+					TypeEffect(texto);
 					break;
 				case 4:
-					System.out.println("Vamos lá, o seu ego não devia ser o motivo de sua escolha.");
+					texto = "Vamos lá, o seu ego não devia ser o motivo de sua escolha.";
+					TypeEffect(texto);
 					break;
 				default:
-					System.out.println("Escolha uma opção válida.");
+					texto = "Escolha uma opção válida.";
+					TypeEffect(texto);
 				}
 			} while (opcao != 2);
-
 
 		} else if (desafio == 3) {
 
 			texto = "\n\nDesafio\n"
-						+ "Como você deve saber, a Administração Científica foi desenvolvida por Frederick Taylor e por isso é frequentemente chamada também de Taylorismo\n"
-						+ "Vamos testar ainda mais seus conhecimentos!"
-						+ "Responda: ";
-				TypeEffect(texto);
-			do {	
-				System.out.println("Qual das opções a seguir descreve uma característica do Taylorismo?\n");
-				System.out.println("1 - Falta de padronização na linha de produção");
-				System.out.println("2 - Fiscalização dos funcionários");
-				System.out.println("3 - Criação de escolas de ofício");
-								
+					+ "Como você deve saber, a Administração Científica foi desenvolvida por Frederick Taylor e por isso é frequentemente chamada também de Taylorismo\n"
+					+ "Vamos testar ainda mais seus conhecimentos!" + "Responda: ";
+			TypeEffect(texto);
+			do {
+				System.out.println("Qual das opções a seguir descreve uma característica do Taylorismo?\n"
+						+ " 1 - Falta de padronização na linha de produção\n" + "2 - Fiscalização dos funcionários\n"
+						+ "3 - Criação de escolas de ofício");
+				System.out.print("Escolha uma opção: ");
 				opcao = input.nextInt();
 
 				switch (opcao) {
 				case 1:
-					System.out.println("Temo que você tenha errado...");
+					texto = "Temo que você tenha errado...";
 					break;
 				case 2:
-					System.out.println("Correto! Não esperava menos de você");
+					texto = "Correto! Não esperava menos de você";
 					break;
 				case 3:
-					System.out.println("Parece que você está confundindo o Taylorismo com outro modelo de admnistração");
+					texto = "Parece que você está confundindo o Taylorismo com outro modelo de admnistração";
 					break;
 				default:
-					System.out.println("Escolha uma opção válida.");
-			} while (opcao != 2);
-			
+					texto = "Escolha uma opção válida.";
+				}
 
+			} while (opcao != 2);
 		} else if (desafio == 4) {
 
 			texto = "\n\nDesafio\n"
-						+ "Muito bem, vamos partir então para a Administração Clássica. Esta já foi idealizada por Henri Fayol e também é conhecida como Fayolismo\n"
-						+ "Mas você certamente já sabia disso."
-						+ "Portanto, responda: ";
-				TypeEffect(texto);
-			do {	
-				System.out.println("Qual das opções a seguir descreve uma característica do Fayolismo?\n");
-				System.out.println("1 - Estudo do tempo de execução dos trabalhos");
-				System.out.println("2 - A utilização de apenas um departamento na linha de produção");
-				System.out.println("3 - Criação de turnos de trabalho");
-								
+					+ "Muito bem, vamos partir então para a Administração Clássica. Esta já foi idealizada por Henri Fayol e também é conhecida como Fayolismo\n"
+					+ "Mas você certamente já sabia disso." + "Portanto, responda: ";
+			TypeEffect(texto);
+			do {
+				System.out.println("Qual das opções a seguir descreve uma característica dos princípios de Fayol?\n"
+						+ "1 - Estudo do tempo de execução dos trabalhos"
+						+ "2 - A utilização de apenas um departamento na linha de produção"
+						+ "3 - Criação de turnos de trabalho");
+
 				opcao = input.nextInt();
 
 				switch (opcao) {
 				case 1:
-					System.out.println("Incorreto. Sinto que você ainda está com o Taylorismo em mente...");
+					texto = "Incorreto. Sinto que você ainda está com o Taylorismo em mente...";
+					TypeEffect(texto);
 					break;
 				case 2:
-					System.out.println("É uma pena, mas não. A separação em departamentos é uma forte característica do Fayolismo");
+					texto = "É uma pena, mas não. A separação em departamentos é uma forte característica do Fayolismo";
+					TypeEffect(texto);
 					break;
 				case 3:
-					System.out.println("Correto!");
+					texto = "Correto!";
+					TypeEffect(texto);
 					break;
 				default:
-					System.out.println("Escolha uma opção válida.");
+					texto = "Escolha uma opção válida.";
+					TypeEffect(texto);
+				}
+
 			} while (opcao != 3);
 
 		} else if (desafio == 5) {
@@ -234,10 +252,10 @@ public class ProjetoIntegrador {
 	public static void MapaVila() {
 		int localizacao;
 
-		System.out.printf("%n 1 - Prefeitura%n 2 - Tendas%n 3 - Hospital%n 4 - Poço%n 5 - Sair%n");
-		System.out.print("Responda: ");
-		localizacao = input.nextInt();
 		do {
+			System.out.printf("%n 1 - Prefeitura%n 2 - Tendas%n 3 - Hospital%n 4 - Poço%n 5 - Sair%n");
+			System.out.print("Responda: ");
+			localizacao = input.nextInt();
 			if (localizacao == 1) {
 				SituaPrefeitura();
 			} else if (localizacao == 2) {
@@ -256,6 +274,7 @@ public class ProjetoIntegrador {
 			}
 
 		} while (localizacao != 5);
+		return;
 
 	}
 
@@ -270,13 +289,14 @@ public class ProjetoIntegrador {
 
 			if (Falar == 1) {
 				QuestioMarcos();
+				break;
 			} else if (Falar == 2) {
 				// Conversa
 			} else if (Falar == 3) {
 				// conversa
 			}
 		} while (Falar != 4);
-
+		return;
 	}
 
 	public static void SituaTendas() { // Localizaçao das tendas
@@ -285,10 +305,21 @@ public class ProjetoIntegrador {
 			System.out.printf(" 1 - Falar com Dimmy%n 2 - Falar com  Jeff%n 3 - Marcia%n 4 - Sair%n");
 			Falar = input.nextInt();
 			if (Falar == 1) {
-				QuestioDimmy();
+				if (memoria.get(0) == "Okay") {
+					QuestioDimmy();
+				} else {
+					texto = "Você só pode falar com Dimmy após se apresentar ao Marcos....";
+					TypeEffect(texto);
+					break;
+				}
 			} else if (Falar == 2) {
-				texto = "Me deixe continuar montando isto daqui, tudo bem?\nEle diz isto enquanto encaixa algumas peças de quebradas de algo que nem ele parece saber.";
-				texto = "Marcia está tão destraída, que não percebe sua presença...";
+				texto = "Jeff está sentado com a cabeça baixa e a mão em sua testa, você entra e ele parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda.. Jeff então diz\n"
+						+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto.\n"
+						+ "Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
+			} else if (Falar == 3) {
+				texto = "Marcia está sentada com a cabeça baixa e a mão em sua testa, você entra e ela parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda.. Marcia então diz\n"
+						+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto.\n"
+						+ "Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
 			} else {
 				System.out.println("saindo");
 			}
