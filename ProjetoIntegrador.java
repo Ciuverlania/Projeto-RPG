@@ -9,6 +9,8 @@ public class ProjetoIntegrador {
 	private static String texto, nome;
 	private static int desafio;
 	private static List<String> memoria = new ArrayList<>();
+	static int vida = 5;
+	static boolean certaRes = true;
 
 	public static void QuestioMarcos() {
 		int resposta = 0, Planta;
@@ -157,6 +159,7 @@ public class ProjetoIntegrador {
 				case 1:
 					texto = "Anh??";
 					TypeEffect(texto);
+					vida -= 1;
 					break;
 				case 2:
 					texto = "Muito bem, é por isso que te escolhemos como nosso líder!";
@@ -165,17 +168,21 @@ public class ProjetoIntegrador {
 				case 3:
 					texto = "?-?...... Poxa, isso não devia ser tão difícil....";
 					TypeEffect(texto);
+					vida -= 1;
 					break;
 				case 4:
 					texto = "Vamos lá, o seu ego não devia ser o motivo de sua escolha.";
 					TypeEffect(texto);
+					vida -= 1;
 					break;
 				default:
 					texto = "Escolha uma opção válida.";
 					TypeEffect(texto);
 				}
+				if(vida == 0){
+					break;
+				}
 			} while (opcao != 2);
-
 		} else if (desafio == 3) {
 
 			texto = "\n\nDesafio\n"
@@ -192,17 +199,22 @@ public class ProjetoIntegrador {
 				switch (opcao) {
 				case 1:
 					texto = "Temo que você tenha errado...";
+					//certaRes = false;
 					break;
 				case 2:
 					texto = "Correto! Não esperava menos de você";
+					//certaRes = true;
 					break;
 				case 3:
 					texto = "Parece que você está confundindo o Taylorismo com outro modelo de admnistração";
+					//certaRes = false;
 					break;
 				default:
 					texto = "Escolha uma opção válida.";
 				}
-
+				/*if(!certaRes){
+					vida -= 1;
+				}*/
 			} while (opcao != 2);
 		} else if (desafio == 4) {
 
@@ -251,8 +263,11 @@ public class ProjetoIntegrador {
 
 	public static void MapaVila() {
 		int localizacao;
-
+		
+		
+		
 		do {
+			//if(vida == 0) break;
 			System.out.printf("%n 1 - Prefeitura%n 2 - Tendas%n 3 - Hospital%n 4 - Poço%n 5 - Sair%n");
 			System.out.print("Responda: ");
 			localizacao = input.nextInt();
@@ -491,6 +506,7 @@ public class ProjetoIntegrador {
 			texto = "Para onde quer ir?";
 			TypeEffect(texto);
 			do {
+				//if(vida == 0) break;
 				System.out.println("\n -Moon Presence");
 				texto = "O que vocêr quer fazer?\n"
 						+ " 1 - Acessar o Mapa do acampamento\n 2 - Dormir\n 3 - Desistir de tudo...\n";
