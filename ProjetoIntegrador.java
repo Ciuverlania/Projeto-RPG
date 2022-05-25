@@ -368,11 +368,9 @@ public class ProjetoIntegrador {
 
 			} else if (Falar == 2) {
 				QuestioJeff();
-				break;
 
 			} else if (Falar == 3) {
 				QuestioMarcia();
-				break;
 
 			} else if (Falar == 4) {
 				System.out.println("saindo");
