@@ -136,6 +136,36 @@ public class ProjetoIntegrador {
 
 		TypeEffect(texto);
 	}
+	
+	public static void QuestioCecilia() {
+		int opcao = 0;
+		texto = "Você entra na prefeitura e pensando em um plano para organizar as pessoas da tribo, com isso vocês conseguiram sobreviver por mais tempo.\n"
+				+ "Cecilia- Eu posso te oferecer uma ajuda com a organização?\n";
+		TypeEffect(texto);
+		System.out.println(" \r1 - Sim\n2 -Não");
+		opcao = input.nextInt();
+		if (opcao == 1) {
+			desafio = 5;
+			desafios();
+		} else {
+			System.out.println("-Cecilia");
+			texto = "Ótimo, será um prazer ajudar.";
+			TypeEffect(texto);
+		}
+		texto = "Vocês montam um plano de organização e comunica as pessoas da tribo, porém, durante os primeiros dias elas parecem não estarem muito satisfeitas...."
+				+ "Por qual motivo isso ocorreu?\n";
+		TypeEffect(texto);
+		if (opcao == 1) {
+			desafio = 5;
+			desafios();
+		} else {
+			System.out.println("-Cecilia");
+			texto = "Você terá de bolar um plano sozinho.\n";
+			desafio = 5;
+			desafios();
+		}
+
+	}
 
 	public static void desafios() {
 		int opcao = 0, chance1 = 0;
@@ -296,8 +326,37 @@ public class ProjetoIntegrador {
 			}
 
 		} else if (desafio == 5) {
+			System.out.println("A teoria de Hezberg trata-se de um estudo que teve como objetivo entender os fatores\n"
+					+ "responsáveis pela motivação e satisfação das pessoas em um ambiente de trabalho");
+			System.out.println("Com base nisso, qual foi a conclusão desta teoria?\n"
+					+ "1 - A insatisfação dos colaboradores estão relacionados as questões ambientais\n"
+					+ "2 - Preguiça\n" + "3 - Estão ligadas aos relacionamentos interpessoais, condições de trabalho\n"
+					+ "4 - 1 e 3 são verdadeiras");
+			System.out.print("Responda: ");
+			int resposta = input.nextInt();
+			if (resposta == 4) {
+				System.out.println("ACERTOOOOU!");
+			} else {
+				System.out.println("ERROOOOU!");
+			}
+			
 
 		} else if (desafio == 6) {
+			System.out.println(
+					"A teoria de McClelland é explicar a importância dos processos psicológicos no desenvolvimento econômico,\n"
+							+ "estudar valores e motivações que levam os homens a explorar oportunidades e tirar vantagens das condições favoráveis do comércio ");
+			System.out.println("Quais são as 3 necessidades da teoria de McClelland?\n"
+					+ "1 - Poder, Vantagens, Exploração\n" + "2 - Afiliação, Realização, Poder\n"
+					+ "3 - Apenas 4 está correta\n" + "4 - Exploração, Afiliação, Vantagens\n");
+			System.out.println("Responda: ");
+			int resposta = input.nextInt();
+			if (resposta == 2) {
+				System.out.println("Parabéns, acertou na mosca!");
+			} else {
+				System.out.println("Que pena vc errou!");
+				if (resposta !=2) {
+					vida -=1;
+				}
 
 		} else if (desafio == 7) {
 
