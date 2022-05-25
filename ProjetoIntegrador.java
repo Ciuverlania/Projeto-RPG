@@ -3,13 +3,58 @@ package pi;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Random;
 
 public class ProjetoIntegrador {
 	public static Scanner input = new Scanner(System.in);
 	private static String texto, nome;
 	private static int desafio;
 	private static List<String> memoria = new ArrayList<>();
-	static int vida = 5;
+	public static int vida = 5;
+	public static vidaBonus = false;
+
+
+	public static void checaVida() {
+		if (vida == 0) {
+			System.out.println("Game Over...");
+		}
+		else if (vidaBonus == false && vida < 3) {
+			Random random = new Random();
+			int escolha;
+			int mao = random.nextInt(3) + 1;
+
+			texto = "Um gênio surge de repente à sua frente. A criatura é gigantesca, horrenda e possui três braços. Sem dizer mais nada, ele lhe estica três mãos. Duas delas estão vazias. Uma contém uma moeda de ouro.";
+			TypeEffect(texto);
+			texto = "O gênio fecha as três mãos e as leva às costas. Segundos depois, as traz à frente novamente, ainda fechadas";
+			TypeEffect(texto);
+			texto = "Você conhece o jogo. Lembra que costumava jogá-lo sempre com sua mãe, mas nunca tivera a chance de ganhar uma moeda de ouro, apenas uma bala de açúcar.";
+			TypeEffect(texto);
+			texto = "Você aponta para a...";
+			TypeEffect(texto);
+			System.out.println("1 - Primeira mão");
+			System.out.println("2 - Segunda mão");
+			System.out.println("3 - Terceira mão");
+
+			escolha = input.nextInt();
+
+			if (escolha == mao) {
+				texto = "O gênio abre a mão escolhida e uma moeda dourada brilha em seu centro. No entanto, quando você tenta pegá-la, ela desaparece. E logo depois, o gênio a imita.";
+				TypeEffect(texto);
+				texto = "Você acha a interação estranha, mas, misteriosamente, sente sua vitalidade retornar";
+				TypeEffect(texto);
+				System.out.println("Ganhou uma vida.");
+				vida++;
+				vidaBonus = true;
+			}
+			else {
+				texto = "O gênio abre a mão escolhida, mas ela se encontra vazia. A criatura, ainda sem dizer nada, desaparece.";
+				TypeEffect(texto);
+				texto = "Você acha a interação estranha, mas a ignora e continua em frente.";
+				TypeEffect(texto);
+			}
+		}
+
+	}
 
 	public static void QuestioMarcos() {
 		int resposta = 0, Planta;
