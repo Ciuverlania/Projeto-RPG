@@ -10,7 +10,6 @@ public class ProjetoIntegrador {
 	private static int desafio;
 	private static List<String> memoria = new ArrayList<>();
 	static int vida = 5;
-	static boolean certaRes = true;
 
 	public static void QuestioMarcos() {
 		int resposta = 0, Planta;
@@ -38,6 +37,7 @@ public class ProjetoIntegrador {
 				System.out.println(" -" + nome);
 				texto = "Não é como se eu precisasse disso nos dias atuais\n";
 				TypeEffect(texto);
+				vida -= 1;
 				break;
 			case 2:
 				System.out.println(" -Marcos");
@@ -54,11 +54,16 @@ public class ProjetoIntegrador {
 				System.out.println(" -" + nome);
 				texto = "Agradeço, e acredito que realmente vai me ser necessário\n";
 				TypeEffect(texto);
+				vida -= 1;
 				break;
 			default:
 				System.out.println("Opção inválida!");
 			}
 		} while (resposta != 2);
+		if (vida == 0) {
+			System.out.println("Game Over");
+		}
+
 		texto = "Tenho uma missão para você, em alguns dias estaremos em tempo de colheita, mas não plantamos nada ainda, temos algumas opções de plantio: \n"
 				+ " 1 - Plantar Chirivias\n" + " 2 - Plantar Morangos\n" + " 3 - Plantar Maçã\n"
 				+ " 4 - Plantar Beterrabas\n" + " 5 - Plantar Couve\n" + " 6 - Não plantar nada\n";
@@ -81,18 +86,23 @@ public class ProjetoIntegrador {
 
 	public static void QuestioDimmy() {
 		int opcao = 0;
+		String texto;
 
-		texto = "Dimmy está sentado com a cabeça baixa e a mão em sua testa, você entra e ele parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda...";
+		texto = "Dimmy está sentado com a cabeça baixa e a mão em sua testa, você entra e ele parece se assustar com a sua presença. "
+				+ "Algo em seu rosto diz que está precisando de ajuda...";
 		TypeEffect(texto);
 		System.out.println(" -Dimmy");
-		texto = "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto....\n"
+		texto = "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também....."
+				+ "e nós ainda nem sabemos se há mais pessoas vivas por perto....\n"
 				+ "Algumas poucas pessoas que foram em busca de seus parentes não voltaram.... ";
 		TypeEffect(texto);
 		System.out.println(" -" + nome);
-		texto = "Sinto muito Dimmy, depois da catastrofe não nos restaram muitas opções... ainda mais agora que meu pai morreu e Marcos exigiu que eu governe no lugar de meu pai... \n";
+		texto = "Sinto muito Dimmy, depois da catastrofe não nos restaram muitas opções... ainda mais agora que meu pai morreu e "
+				+ "Marcos exigiu que eu governe no lugar de meu pai... \n";
 		TypeEffect(texto);
 		System.out.println(" -Dimmy");
-		texto = "talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
+		texto = "talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora...."
+				+ "Você deseja explorar o território?";
 		System.out.println(" 1 - Sim\n 2 - Não");
 		opcao = input.nextInt();
 		if (opcao == 1) {
@@ -103,6 +113,28 @@ public class ProjetoIntegrador {
 			texto = "Entendo, mas lembre-se, não há ninguém melhor que eu para te mostrar todo o lugar....";
 		}
 
+	}
+
+	public static void QuestioJeff() {
+		String texto;
+
+		texto = "Jeff está sentado com a cabeça baixa e a mão em sua testa, você entra e ele parece se assustar com a sua presença."
+				+ " Algo em seu rosto diz que está precisando de ajuda.. Jeff então diz\n"
+				+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também..."
+				+ "e nós ainda nem sabemos se há mais pessoas vivas por perto.\n";
+
+		TypeEffect(texto);
+	}
+
+	public static void QuestioMarcia() {
+		String texto;
+
+		texto = "Marcia está sentada com a cabeça baixa e a mão em sua testa, você entra e ela parece se assustar com a sua presença."
+				+ "Algo em seu rosto diz que está precisando de ajuda.. Marcia então diz\n"
+				+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.."
+				+ "e nós ainda nem sabemos se há mais pessoas vivas por perto.\n";
+
+		TypeEffect(texto);
 	}
 
 	public static void desafios() {
@@ -131,15 +163,21 @@ public class ProjetoIntegrador {
 						TypeEffect(texto);
 						desafio1 = "certo";
 						memoria.add(desafio1);
+						vida -= 1;
 					} else {
 						texto = "Você errou de primeira, isso influenciará no seu futuro.....infelizmente\n";
 						TypeEffect(texto);
 						desafio1 = "errado";
 						memoria.add(desafio1);
+						vida -= 1;
 					}
 				}
 				chance1 += 1;
 			} while (opcao != 3);
+			if (vida == 0) {
+				System.out.println("Game Over");
+			}
+
 			System.out.println(memoria.get(1));
 		} else if (desafio == 2) {
 
@@ -149,40 +187,41 @@ public class ProjetoIntegrador {
 			TypeEffect(texto);
 
 			do {
-				System.out.println(" 1 - Todos estão pedindo por isso, então o que mais eu poderia fazer?\n"
-						+ " 2 - Me escolheram como líder, e devo honrar isto, indo além do que me é solicitado.\n"
-						+ " 3 - Existe diferença?\n" + "4- Eu nunca nego um desafio.\n");
+				System.out.println("\n1 - Todos estão pedindo por isso, então o que mais eu poderia fazer?\n"
+						+ "2 - Me escolheram como líder, e devo honrar isto, indo além do que me é solicitado.\n"
+						+ "3 - Existe diferença?\n" + "4- Eu nunca nego um desafio.\n");
 
 				System.out.print("Escolha uma opção: ");
 				opcao = input.nextInt();
 				switch (opcao) {
 				case 1:
-					texto = "Anh??";
+					texto = "Anh??\n";
 					TypeEffect(texto);
 					vida -= 1;
 					break;
 				case 2:
-					texto = "Muito bem, é por isso que te escolhemos como nosso líder!";
+					texto = "Muito bem, é por isso que te escolhemos como nosso líder!\n";
 					TypeEffect(texto);
 					break;
 				case 3:
-					texto = "?-?...... Poxa, isso não devia ser tão difícil....";
+					texto = "?-?...... Poxa, isso não devia ser tão difícil....\n";
 					TypeEffect(texto);
 					vida -= 1;
 					break;
 				case 4:
-					texto = "Vamos lá, o seu ego não devia ser o motivo de sua escolha.";
+					texto = "Vamos lá, o seu ego não devia ser o motivo de sua escolha.\n";
 					TypeEffect(texto);
 					vida -= 1;
 					break;
 				default:
-					texto = "Escolha uma opção válida.";
+					texto = "Escolha uma opção válida.\n";
 					TypeEffect(texto);
 				}
-				if(vida == 0){
-					break;
-				}
 			} while (opcao != 2);
+			if (vida == 0) {
+				System.out.println("Game Over");
+			}
+
 		} else if (desafio == 3) {
 
 			texto = "\n\nDesafio\n"
@@ -199,23 +238,24 @@ public class ProjetoIntegrador {
 				switch (opcao) {
 				case 1:
 					texto = "Temo que você tenha errado...";
-					//certaRes = false;
+					vida -= 1;
 					break;
 				case 2:
 					texto = "Correto! Não esperava menos de você";
-					//certaRes = true;
 					break;
 				case 3:
 					texto = "Parece que você está confundindo o Taylorismo com outro modelo de admnistração";
-					//certaRes = false;
+					vida -= 1;
 					break;
 				default:
 					texto = "Escolha uma opção válida.";
 				}
-				/*if(!certaRes){
-					vida -= 1;
-				}*/
+
 			} while (opcao != 2);
+			if (vida == 0) {
+				System.out.println("Game Over");
+			}
+
 		} else if (desafio == 4) {
 
 			texto = "\n\nDesafio\n"
@@ -233,11 +273,13 @@ public class ProjetoIntegrador {
 				switch (opcao) {
 				case 1:
 					texto = "Incorreto. Sinto que você ainda está com o Taylorismo em mente...";
+					vida -= 1;
 					TypeEffect(texto);
 					break;
 				case 2:
 					texto = "É uma pena, mas não. A separação em departamentos é uma forte característica do Fayolismo";
 					TypeEffect(texto);
+					vida -= 1;
 					break;
 				case 3:
 					texto = "Correto!";
@@ -249,6 +291,9 @@ public class ProjetoIntegrador {
 				}
 
 			} while (opcao != 3);
+			if (vida == 0) {
+				System.out.println("Game Over");
+			}
 
 		} else if (desafio == 5) {
 
@@ -263,11 +308,8 @@ public class ProjetoIntegrador {
 
 	public static void MapaVila() {
 		int localizacao;
-		
-		
-		
+
 		do {
-			//if(vida == 0) break;
 			System.out.printf("%n 1 - Prefeitura%n 2 - Tendas%n 3 - Hospital%n 4 - Poço%n 5 - Sair%n");
 			System.out.print("Responda: ");
 			localizacao = input.nextInt();
@@ -316,26 +358,23 @@ public class ProjetoIntegrador {
 
 	public static void SituaTendas() { // Localizaçao das tendas
 		int Falar;
+
 		do {
 			System.out.printf(" 1 - Falar com Dimmy%n 2 - Falar com  Jeff%n 3 - Marcia%n 4 - Sair%n");
 			Falar = input.nextInt();
 			if (Falar == 1) {
-				if (memoria.get(0) == "Okay") {
-					QuestioDimmy();
-				} else {
-					texto = "Você só pode falar com Dimmy após se apresentar ao Marcos....";
-					TypeEffect(texto);
-					break;
-				}
+				QuestioDimmy();
+				break;
+
 			} else if (Falar == 2) {
-				texto = "Jeff está sentado com a cabeça baixa e a mão em sua testa, você entra e ele parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda.. Jeff então diz\n"
-						+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto.\n"
-						+ "Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
+				QuestioJeff();
+				break;
+
 			} else if (Falar == 3) {
-				texto = "Marcia está sentada com a cabeça baixa e a mão em sua testa, você entra e ela parece se assustar com a sua presença. Algo em seu rosto diz que está precisando de ajuda.. Marcia então diz\n"
-						+ "Me parece que as coisas estão ficando muito dificeis por aqui, pouca comida, a água parece estar acabando também.....e nós ainda nem sabemos se há mais pessoas vivas por perto.\n"
-						+ "Algumas poucas pessoas que foram em busca de seus parentes não voltaram, talvez seja arriscado demais sair de nossa tribo, mas eu imagino que isto esteja passando por sua cabeça agora....Você deseja explorar o território?";
-			} else {
+				QuestioMarcia();
+				break;
+
+			} else if (Falar == 4) {
 				System.out.println("saindo");
 			}
 		} while (Falar != 4);
@@ -425,7 +464,7 @@ public class ProjetoIntegrador {
 				TypeEffect(texto);
 				break;
 			default:
-				System.out.println("Esolhe uma opção válida ae pô, faça juz ao seu nome");
+				System.out.println("Escolhe uma opção válida ae pô, faça juz ao seu nome");
 
 			}
 
@@ -506,7 +545,6 @@ public class ProjetoIntegrador {
 			texto = "Para onde quer ir?";
 			TypeEffect(texto);
 			do {
-				//if(vida == 0) break;
 				System.out.println("\n -Moon Presence");
 				texto = "O que vocêr quer fazer?\n"
 						+ " 1 - Acessar o Mapa do acampamento\n 2 - Dormir\n 3 - Desistir de tudo...\n";
