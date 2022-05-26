@@ -16,7 +16,7 @@ public class ProjetoIntegrador {
 
 	public static void checaVida() {
 		if (vida == 0) {
-			System.out.println("Game Over...");
+			fimDeJogo();
 		}
 		else if (vidaBonus == false && vida < 3) {
 			Random random = new Random();
@@ -56,6 +56,12 @@ public class ProjetoIntegrador {
 
 	}
 
+	public static void fimDeJogo() {
+		System.out.println("Temo que este seja o fim de sua jornada...");
+		System.out.println("Game Over...");
+		System.exit(0);
+	}
+
 	public static void QuestioMarcos() {
 		int resposta = 0, Planta;
 		String texto;
@@ -77,12 +83,13 @@ public class ProjetoIntegrador {
 			switch (resposta) {
 			case 1:
 				System.out.println(" -Marcos");
-				texto = "Apesar de sua boa aparência (digasse de passagem), este não foi o motivo no qual eles te escolheram.\n";
+				texto = "Apesar de sua boa aparência (diga-se de passagem), este não foi o motivo no qual eles te escolheram.\n";
 				TypeEffect(texto);
 				System.out.println(" -" + nome);
 				texto = "Não é como se eu precisasse disso nos dias atuais\n";
 				TypeEffect(texto);
 				vida -= 1;
+				checaVida();
 				break;
 			case 2:
 				System.out.println(" -Marcos");
@@ -100,14 +107,13 @@ public class ProjetoIntegrador {
 				texto = "Agradeço, e acredito que realmente vai me ser necessário\n";
 				TypeEffect(texto);
 				vida -= 1;
+				checaVida();
 				break;
 			default:
 				System.out.println("Opção inválida!");
 			}
 		} while (resposta != 2);
-		if (vida == 0) {
-			System.out.println("Game Over");
-		}
+		
 
 		texto = "Tenho uma missão para você, em alguns dias estaremos em tempo de colheita, mas não plantamos nada ainda, temos algumas opções de plantio: \n"
 				+ " 1 - Plantar Chirivias\n" + " 2 - Plantar Morangos\n" + " 3 - Plantar Maçã\n"
@@ -239,19 +245,19 @@ public class ProjetoIntegrador {
 						desafio1 = "certo";
 						memoria.add(desafio1);
 						vida -= 1;
+						checaVida();
 					} else {
 						texto = "Você errou de primeira, isso influenciará no seu futuro.....infelizmente\n";
 						TypeEffect(texto);
 						desafio1 = "errado";
 						memoria.add(desafio1);
 						vida -= 1;
+						checaVida();
 					}
 				}
 				chance1 += 1;
 			} while (opcao != 3);
-			if (vida == 0) {
-				System.out.println("Game Over");
-			}
+			
 
 			System.out.println(memoria.get(1));
 		} else if (desafio == 2) {
@@ -273,6 +279,7 @@ public class ProjetoIntegrador {
 					texto = "Anh??\n";
 					TypeEffect(texto);
 					vida -= 1;
+					checaVida();
 					break;
 				case 2:
 					texto = "Muito bem, é por isso que te escolhemos como nosso líder!\n";
@@ -282,20 +289,20 @@ public class ProjetoIntegrador {
 					texto = "?-?...... Poxa, isso não devia ser tão difícil....\n";
 					TypeEffect(texto);
 					vida -= 1;
+					checaVida();
 					break;
 				case 4:
 					texto = "Vamos lá, o seu ego não devia ser o motivo de sua escolha.\n";
 					TypeEffect(texto);
 					vida -= 1;
+					checaVida();
 					break;
 				default:
 					texto = "Escolha uma opção válida.\n";
 					TypeEffect(texto);
 				}
 			} while (opcao != 2);
-			if (vida == 0) {
-				System.out.println("Game Over");
-			}
+			
 
 		} else if (desafio == 3) {
 
@@ -314,6 +321,7 @@ public class ProjetoIntegrador {
 				case 1:
 					texto = "Temo que você tenha errado...";
 					vida -= 1;
+					checaVida();
 					break;
 				case 2:
 					texto = "Correto! Não esperava menos de você";
@@ -321,15 +329,14 @@ public class ProjetoIntegrador {
 				case 3:
 					texto = "Parece que você está confundindo o Taylorismo com outro modelo de admnistração";
 					vida -= 1;
+					checaVida();
 					break;
 				default:
 					texto = "Escolha uma opção válida.";
 				}
 
 			} while (opcao != 2);
-			if (vida == 0) {
-				System.out.println("Game Over");
-			}
+			
 
 		} else if (desafio == 4) {
 
@@ -349,12 +356,14 @@ public class ProjetoIntegrador {
 				case 1:
 					texto = "Incorreto. Sinto que você ainda está com o Taylorismo em mente...";
 					vida -= 1;
+					checaVida();
 					TypeEffect(texto);
 					break;
 				case 2:
 					texto = "É uma pena, mas não. A separação em departamentos é uma forte característica do Fayolismo";
 					TypeEffect(texto);
 					vida -= 1;
+					checaVida();
 					break;
 				case 3:
 					texto = "Correto!";
@@ -366,9 +375,7 @@ public class ProjetoIntegrador {
 				}
 
 			} while (opcao != 3);
-			if (vida == 0) {
-				System.out.println("Game Over");
-			}
+			
 
 		} else if (desafio == 5) {
 			System.out.println("A teoria de Hezberg trata-se de um estudo que teve como objetivo entender os fatores\n"
@@ -383,6 +390,8 @@ public class ProjetoIntegrador {
 				System.out.println("ACERTOOOOU!");
 			} else {
 				System.out.println("ERROOOOU!");
+				vida--;
+				checaVida();
 			}
 			
 
@@ -398,14 +407,18 @@ public class ProjetoIntegrador {
 			if (resposta == 2) {
 				System.out.println("Parabéns, acertou na mosca!");
 			} else {
-				System.out.println("Que pena vc errou!");
+				System.out.println("Que pena você errou!");
 				if (resposta !=2) {
 					vida -=1;
+					checaVida();
 				}
 
+		}
 		} else if (desafio == 7) {
+			//desafio
 
 		} else if (desafio == 8) {
+			//desafio
 
 		}
 	}
@@ -429,6 +442,7 @@ public class ProjetoIntegrador {
 			} else if (localizacao == 5) {
 				texto = "Uma pena você ser um desistente";
 				TypeEffect(texto);
+				fimDeJogo();
 
 			} else {
 				System.out.println("Digite um valor válido.");
@@ -440,7 +454,7 @@ public class ProjetoIntegrador {
 	}
 
 	public static void SituaPrefeitura() { // Localizacao da prefeitura
-		int Falar;
+		int Falar = 0;
 		String texto;
 		do {
 			System.out.printf(" 1 - Falar com Marcos%n 2 - Falar com Leo%n 3 - Falar com Luca%n 4 - Sair%n");
@@ -451,17 +465,23 @@ public class ProjetoIntegrador {
 			if (Falar == 1) {
 				QuestioMarcos();
 				break;
+
 			} else if (Falar == 2) {
-				// Conversa
+				//conversa
+
 			} else if (Falar == 3) {
-				// conversa
+				//conversa
+
+			} else if (Falar == 4) {
+				MapaVila();
+				
 			}
-		} while (Falar != 4);
+		} while (Falar == 0);
 		return;
 	}
 
 	public static void SituaTendas() { // Localizaçao das tendas
-		int Falar;
+		int Falar = 0;
 
 		do {
 			System.out.printf(" 1 - Falar com Dimmy%n 2 - Falar com  Jeff%n 3 - Marcia%n 4 - Sair%n");
@@ -472,14 +492,16 @@ public class ProjetoIntegrador {
 
 			} else if (Falar == 2) {
 				QuestioJeff();
+				
 
 			} else if (Falar == 3) {
 				QuestioMarcia();
 
+
 			} else if (Falar == 4) {
-				System.out.println("saindo");
+				MapaVila();
 			}
-		} while (Falar != 4);
+		} while (Falar == 0);
 
 	}
 
@@ -490,14 +512,18 @@ public class ProjetoIntegrador {
 		Falar = input.nextInt();
 		do {
 			if (Falar == 1) {
-				// conversa
+				//conversa
+
 			} else if (Falar == 2) {
-				// conversa
+				//conversa			
+
 			} else if (Falar == 3) {
-				// conversa
+				//conversa
+
+			} else if (Falar == 4) {
+				MapaVila();
 			}
-		} while (Falar != 4);
-		MapaVila();
+		} while (Falar == 0);
 	}
 
 	public static void SituaPoco() {
@@ -617,7 +643,7 @@ public class ProjetoIntegrador {
 				} else if (EscolhaCentral == 2) {
 					texto = "Lamentável, tive experanças em você, pena que eu estava errada...., talvez um filho de outra vida possa me ajudar com a 'conquista'.....\n -Amygdala\n\n";
 					TypeEffect(texto);
-					break;
+					fimDeJogo();
 
 				} else {
 					System.out.println("Escolha uma opção válida...");
@@ -633,7 +659,7 @@ public class ProjetoIntegrador {
 					+ "uma das cenas mais tristes em sua vida.... Em meio aos panos estava um braço, você só consegue notar uma tatuagem que já havia visto antes, e um relógio que lhe refrescava a memória\n"
 					+ "Jenkins.... ERA ISSO, Jenkins um maduro caçador, que dessa vez, não voltou inteiro da caçada..... \n\n";
 			TypeEffect(texto);
-			System.out.println("-Mooon Presence");
+			System.out.println("-Moon Presence");
 			texto = "Um Homem lhe puxa pelo ombro...\n ";
 			TypeEffect(texto);
 			System.out.println("\n-Marcos");
@@ -664,6 +690,7 @@ public class ProjetoIntegrador {
 				} else if (EscolhaCentral == 3) {
 					texto = ".....Okay, nem todos que vieram até aqui tiveram coragem de ficar, mas acredite em mim, o grande sonho só acaba quando se enfrenta a realidade.....\n";
 					TypeEffect(texto);
+					
 				}
 			} while (EscolhaCentral != 3);
 
