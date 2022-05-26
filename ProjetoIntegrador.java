@@ -203,16 +203,22 @@ public class ProjetoIntegrador {
 
 	public static void QuestioAmy() {
 		int opcao = 0;
-		
+
 		texto = "Amy é a enfermeira chefe do hospital improvisado de nossa tribo. Ela precisa de ajuda para organizar as coisas por lá."
-				+ "E não há ninguem melhor para ajuda-la do que você!";
+				+ "E não há ninguem melhor para ajuda-la do que você!\n";
+		TypeEffect(texto);
 		System.out.println("Você quer ajudar a Amy?");
-		System.out.println("1-SIM \n 2- NÃO");
-		if(opcao == 1) {
+		System.out.println("1- SIM \n2- NÃO");
+		opcao = input.nextInt();
+
+		if (opcao == 1) {
 			desafio = 7;
 			desafios();
-		}else {
-			texto = "Amy parece decepcionada...\n";
+		} else if (opcao == 2) {
+			System.out.println("Amy parece decepcionada...\n");
+			;
+		} else {
+			System.out.println("Digite um número válido\n");
 		}
 	}
 
@@ -410,13 +416,12 @@ public class ProjetoIntegrador {
 		} else if (desafio == 7) {
 			texto = "Amy tira algumas anotações de seu bolso e você se assusta. Ela parece estar pensando muito sobre isso.\n";
 			TypeEffect(texto);
-			
+
 			do {
-				System.out.println("De acordo com a teoria de Grad Gerencial, qual o melhor modelo de gerência que eu deveria implementar aqui no nosso hospital?"
-						+"1 - Autoritário"
-						+"2 - Clube de campo"
-						+"3 - Meio-termo"
-						+"4 - Democrático");
+				System.out.println(
+						"De acordo com a teoria de Grad Gerencial, qual o melhor modelo de gerência que eu deveria implementar aqui no nosso hospital?\n"
+								+ "1 - Autoritário\n" + "2 - Clube de campo\n" + "3 - Meio-termo\n"
+								+ "4 - Democrático\n");
 
 				System.out.print("Escolha uma opção: ");
 				opcao = input.nextInt();
@@ -427,18 +432,19 @@ public class ProjetoIntegrador {
 					vida -= 1;
 					checaVida();
 					break;
+
 				case 2:
 					texto = "Aqui? Você não pode estar falando sério.\n";
 					TypeEffect(texto);
 					vida -= 1;
 					checaVida();
-					break;
+
 				case 3:
 					texto = "Você está quase lá.\n";
 					TypeEffect(texto);
 					vida -= 1;
 					checaVida();
-					break;
+
 				case 4:
 					texto = "Amy sorri... Isso mé parece um ótimo sinal!\n";
 					TypeEffect(texto);
@@ -449,8 +455,7 @@ public class ProjetoIntegrador {
 				}
 			} while (opcao != 4);
 
-				
-			} else if (desafio == 8) {
+		} else if (desafio == 8) {
 			// desafio
 
 		}
@@ -544,19 +549,19 @@ public class ProjetoIntegrador {
 		do {
 			if (Falar == 1) {
 				texto = "Thomas é o médico da tribo, ele não consegue fazer muita coisa com os poucos recursos que encontramos, mas ele consegue aliviar o sofrimento de algumas pessoas que buscam ajuda."
-						+ "Thomas\n Olá" + nome + ", você se machucou? Precisa de alguma ajuda?";
+						+ "\nThomas- Olá " + nome + ", você se machucou? Precisa de alguma ajuda?";
 				TypeEffect(texto);
-				System.out.println(" 1 - Sim\n 2 - Não");
+				System.out.println("\n1 - Sim" + "\n2 - Não");
 				opcao = input.nextInt();
 				if (opcao == 1) {
 					texto = "Você mostra algumas feridas deixadas após a grande guerra, mas na muito grave.\n";
 					texto = "-Thomas\nBom, não me parece nada grave.";
 					texto = nome
-							+ "Muito obrigado pela ajuda, fico feliz em saber o que está fazendo por aqui mesmo com tão pouco..";
+							+ "- Muito obrigado pela ajuda, fico feliz em saber o que está fazendo por aqui mesmo com tão pouco..";
 					TypeEffect(texto);
-				} else {
+				} else if (Falar == 2) {
 					System.out.println("-Thomas\n");
-					texto = "Que ótimo que está bem, fico feliz com isso...";
+					texto = "Que ótimo que está bem, fico feliz com isso...\n";
 					TypeEffect(texto);
 				}
 
@@ -565,11 +570,12 @@ public class ProjetoIntegrador {
 
 			} else if (Falar == 3) {
 				QuestioAmy();
+				break;
 
 			} else if (Falar == 4) {
 				MapaVila();
 			}
-		} while (Falar == 0);
+		} while (Falar != 4);
 	}
 
 	public static void SituaPoco() {
