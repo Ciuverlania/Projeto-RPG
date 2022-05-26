@@ -11,7 +11,7 @@ public class ProjetoIntegrador {
 	private static int desafio;
 	private static List<String> memoria = new ArrayList<>();
 	public static int vida = 5;
-	public static vidaBonus = false;
+	public static boolean vidaBonus = false;
 
 
 	public static void checaVida() {
@@ -23,13 +23,13 @@ public class ProjetoIntegrador {
 			int escolha;
 			int mao = random.nextInt(3) + 1;
 
-			texto = "Um gênio surge de repente à sua frente. A criatura é gigantesca, horrenda e possui três braços. Sem dizer mais nada, ele lhe estica três mãos. Duas delas estão vazias. Uma contém uma moeda de ouro.";
+			texto = "\nUm gênio surge de repente à sua frente. A criatura é gigantesca, horrenda e possui três braços. \nSem dizer mais nada, ele lhe estica três mãos. Duas delas estão vazias. \nUma contém uma moeda de ouro.\n";
 			TypeEffect(texto);
-			texto = "O gênio fecha as três mãos e as leva às costas. Segundos depois, as traz à frente novamente, ainda fechadas";
+			texto = "\nO gênio fecha as três mãos e as leva às costas. \nSegundos depois, as traz à frente novamente, ainda fechadas.";
 			TypeEffect(texto);
-			texto = "Você conhece o jogo. Lembra que costumava jogá-lo sempre com sua mãe, mas nunca tivera a chance de ganhar uma moeda de ouro, apenas uma bala de açúcar.";
+			texto = "\nVocê conhece o jogo. Lembra que costumava jogá-lo sempre com sua mãe, \nmas nunca tivera a chance de ganhar uma moeda de ouro, apenas uma bala de açúcar.\n";
 			TypeEffect(texto);
-			texto = "Você aponta para a...";
+			texto = "\nVocê aponta para a...\n";
 			TypeEffect(texto);
 			System.out.println("1 - Primeira mão");
 			System.out.println("2 - Segunda mão");
@@ -38,26 +38,27 @@ public class ProjetoIntegrador {
 			escolha = input.nextInt();
 
 			if (escolha == mao) {
-				texto = "O gênio abre a mão escolhida e uma moeda dourada brilha em seu centro. No entanto, quando você tenta pegá-la, ela desaparece. E logo depois, o gênio a imita.";
+				texto = "\nO gênio abre a mão escolhida e uma moeda dourada brilha em seu centro. \nNo entanto, quando você tenta pegá-la, ela desaparece. E logo depois, o gênio a imita.";
 				TypeEffect(texto);
-				texto = "Você acha a interação estranha, mas, misteriosamente, sente sua vitalidade retornar";
+				texto = "\nVocê acha a interação estranha, mas, misteriosamente, sente sua vitalidade retornar";
 				TypeEffect(texto);
-				System.out.println("Ganhou uma vida.");
+				System.out.println("\nGanhou uma vida.\n");
 				vida++;
 				vidaBonus = true;
 			}
 			else {
-				texto = "O gênio abre a mão escolhida, mas ela se encontra vazia. A criatura, ainda sem dizer nada, desaparece.";
+				texto = "\nO gênio abre a mão escolhida, mas ela se encontra vazia. \nA criatura, ainda sem dizer nada, desaparece.";
 				TypeEffect(texto);
-				texto = "Você acha a interação estranha, mas a ignora e continua em frente.";
+				texto = "\nVocê acha a interação estranha, mas a ignora e continua em frente.\n\n";
 				TypeEffect(texto);
+				vidaBonus = true;
 			}
 		}
 
 	}
 
 	public static void fimDeJogo() {
-		System.out.println("Temo que este seja o fim de sua jornada...");
+		System.out.println("\nTemo que este seja o fim de sua jornada...");
 		System.out.println("Game Over...");
 		System.exit(0);
 	}
@@ -427,8 +428,9 @@ public class ProjetoIntegrador {
 		int localizacao;
 
 		do {
+			System.out.println("\nMapa: ");
 			System.out.printf("%n 1 - Prefeitura%n 2 - Tendas%n 3 - Hospital%n 4 - Poço%n 5 - Sair%n");
-			System.out.print("Responda: ");
+			System.out.println("Responda: ");
 			localizacao = input.nextInt();
 			if (localizacao == 1) {
 				SituaPrefeitura();
@@ -534,6 +536,7 @@ public class ProjetoIntegrador {
 		TypeEffect(texto);
 		System.out.println("-Mooon Presence");
 		texto = "Se eu fosse você não olharia, mas como não sou.....\n";
+		TypeEffect(texto);
 		System.out.println("O que você vai fazer?\n 1 - Olhar para o poço\n 2 - Sair");
 		escolha = input.nextInt();
 		if (escolha == 1) {
@@ -541,6 +544,7 @@ public class ProjetoIntegrador {
 
 		} else {
 			texto = "Foi uma boa escolha.......";
+			TypeEffect(texto);
 		}
 		MapaVila();
 	}
@@ -554,8 +558,8 @@ public class ProjetoIntegrador {
 
 	public static String Creditos() { // Creditos do jogo, função criada para ser chamado no menu.
 		String Creditos = "Esse projeto foi feito com intuito de auxiliar os alunos em geral, o grupo em aprender mais em programação java e os alunos com as aulas de administração\n"
-				+ "Tudo isso foi desenvolvido pelo grupo 3 composto por Enzo Costa, Bianca de Oliveira, Ciuverlania Andrade e Eduardo Oliveira\n"
-				+ "Gostaira de deixar menções honrosas aos professores que nos auxiliaram durante essa caminhada. Obrigado Eduarto 'Takeo' e Keli Cristiane\n"
+				+ "Tudo isso foi desenvolvido pelo grupo 3 composto por Enzo Costa, Bianca de Oliveira, Ciuverlania Andrade e Eduardo Oliveira.\n"
+				+ "Gostaria de deixar menções honrosas aos professores que nos auxiliaram durante essa caminhada. Obrigado Eduarto Takeo e Keli Cristiane\n"
 				+ "E não esquecemos dos professores que nos apoiaram com conteúdo além do projeto, como o Marcio (Matemática), Fernando (Algoritmos), Anderson (Conceitos da computação) e Livia (Pesquisa Tecnologia e Sociedade)\n\n";
 		return Creditos;
 
@@ -570,7 +574,7 @@ public class ProjetoIntegrador {
 		int menu1;
 		do {
 			System.out.printf(" 1 - Tutorial%n 2 - Jogar%n 3 - Créditos%n 4 - Sair%n");
-			System.out.print("Selecione uma opção: ");
+			System.out.print("\nSelecione uma opção: ");
 			menu1 = input.nextInt();
 			System.out.println("");
 			String texto;
@@ -624,6 +628,10 @@ public class ProjetoIntegrador {
 
 	public static void main(String[] args) { // Jogo
 		int EscolhaCentral;
+
+		System.out.printf("Bem-vindo a:\n\n");
+		texto = "The Restoration\n\n";
+		TypeEffect(texto);
 
 		if (menu() == 2) {
 			texto = "Em um mundo devastado pelas escolhas do homem e com a humanidade beirando a extinção, algumas pessoas se destacam por tomadas de decisão incríveis e uma governança inabalável\n"
