@@ -1,3 +1,5 @@
+package pi;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -5,9 +7,11 @@ import java.util.Random;
 
 public class ProjetoIntegrador {
 	public static Scanner input = new Scanner(System.in);
-	private static String texto, nome;
+	private static String texto, nome, busca;
 	private static int desafio;
-	private static List<String> memoria = new ArrayList<>();
+	private static List<String> situacao = new ArrayList<>();
+	private static List<String> comida = new ArrayList<>();
+	private static List<String> soldados = new ArrayList<>();
 	public static int vida = 5;
 	public static boolean vidaBonus = false;
 
@@ -60,7 +64,7 @@ public class ProjetoIntegrador {
 
 	public static void QuestioMarcos() {
 		int resposta = 0, Planta;
-		String texto;
+		String texto, planta;
 
 		texto = "Seja Bem Vindo(a) " + nome + " algumas coisas me preocupam, ainda mais depois da morte do seu pai....";
 		TypeEffect(texto);
@@ -116,18 +120,51 @@ public class ProjetoIntegrador {
 		TypeEffect(texto);
 		System.out.print("Responda: ");
 		Planta = input.nextInt();
-		if (Planta == 6) {
-			texto = "Você fez uma péssima escolha.... infelizmente";
-			TypeEffect(texto);
-			String NaoPlant = "Nao";
-			memoria.add(NaoPlant);
-		} else {
-			String Plant = "Sim";
-			memoria.add(Plant);
-		}
+		do {
+			switch (Planta) {
+			case 1:
+				texto = "Chirivias?...... entendo, é uma boa escolha.... ";
+				planta = "Chirivias";
+				comida.add(planta);
+				situacao.add("plantou");
+				break;
+			case 2:
+				texto = "Morangos?...... entendo, eu adoro morangos.... ";
+				planta = "Morangos";
+				comida.add(planta);
+				situacao.add("plantou");
+				break;
+			case 3:
+				texto = "Ma...Ma...Maçãs????...... entendo, okay, mas você entende que vai demorar um pouco para crescer....né? ";
+				planta = "Maçã";
+				comida.add(planta);
+				;
+				situacao.add("plantou");
+				break;
+			case 4:
+				texto = "Beterrabas?...... entendo, ótima para alimentar os exercitos.... ";
+				planta = "Beterraba";
+				comida.add(planta);
+				situacao.add("plantou");
+				break;
+			case 5:
+				texto = "Chirivias?...... entendo, é uma boa escolha.... ";
+				planta = "Couve";
+				comida.add(planta);
+				situacao.add("plantou");
+				break;
+			case 6:
+				situacao.add("NaoPlantou");
+				break;
+			default:
+				System.out.println("Insira um valor válido;");
+				break;
+			}
+		} while (Planta == 6);
+
 		desafio = 1;
 		desafios();
-		memoria.add("okay");
+		situacao.add("MarcosOkay");
 	}
 
 	public static void QuestioDimmy() {
@@ -205,20 +242,14 @@ public class ProjetoIntegrador {
 		int opcao = 0;
 
 		texto = "Amy é a enfermeira chefe do hospital improvisado de nossa tribo. Ela precisa de ajuda para organizar as coisas por lá."
-				+ "E não há ninguem melhor para ajuda-la do que você!\n";
-		TypeEffect(texto);
+				+ "E não há ninguem melhor para ajuda-la do que você!";
 		System.out.println("Você quer ajudar a Amy?");
-		System.out.println("1- SIM \n2- NÃO");
-		opcao = input.nextInt();
-
+		System.out.println("1-SIM \n 2- NÃO");
 		if (opcao == 1) {
 			desafio = 7;
 			desafios();
-		} else if (opcao == 2) {
-			System.out.println("Amy parece decepcionada...\n");
-			;
 		} else {
-			System.out.println("Digite um número válido\n");
+			texto = "Amy parece decepcionada...\n";
 		}
 	}
 
@@ -247,14 +278,14 @@ public class ProjetoIntegrador {
 						texto = "Você acertou de primeira, isso influenciará seu futuro...\n";
 						TypeEffect(texto);
 						desafio1 = "certo";
-						memoria.add(desafio1);
+						situacao.add(desafio1);
 						vida -= 1;
 						checaVida();
 					} else {
 						texto = "Você errou de primeira, isso influenciará no seu futuro.....infelizmente\n";
 						TypeEffect(texto);
 						desafio1 = "errado";
-						memoria.add(desafio1);
+						situacao.add(desafio1);
 						vida -= 1;
 						checaVida();
 					}
@@ -262,7 +293,7 @@ public class ProjetoIntegrador {
 				chance1 += 1;
 			} while (opcao != 3);
 
-			System.out.println(memoria.get(1));
+			System.out.println(situacao.get(1));
 		} else if (desafio == 2) {
 
 			texto = "Com base nos pensamentos de Geertz, motivação e conformidade são diferentes.\n"
@@ -419,9 +450,8 @@ public class ProjetoIntegrador {
 
 			do {
 				System.out.println(
-						"De acordo com a teoria de Grad Gerencial, qual o melhor modelo de gerência que eu deveria implementar aqui no nosso hospital?\n"
-								+ "1 - Autoritário\n" + "2 - Clube de campo\n" + "3 - Meio-termo\n"
-								+ "4 - Democrático\n");
+						"De acordo com a teoria de Grad Gerencial, qual o melhor modelo de gerência que eu deveria implementar aqui no nosso hospital?"
+								+ "1 - Autoritário" + "2 - Clube de campo" + "3 - Meio-termo" + "4 - Democrático");
 
 				System.out.print("Escolha uma opção: ");
 				opcao = input.nextInt();
@@ -432,19 +462,18 @@ public class ProjetoIntegrador {
 					vida -= 1;
 					checaVida();
 					break;
-
 				case 2:
 					texto = "Aqui? Você não pode estar falando sério.\n";
 					TypeEffect(texto);
 					vida -= 1;
 					checaVida();
-
+					break;
 				case 3:
 					texto = "Você está quase lá.\n";
 					TypeEffect(texto);
 					vida -= 1;
 					checaVida();
-
+					break;
 				case 4:
 					texto = "Amy sorri... Isso mé parece um ótimo sinal!\n";
 					TypeEffect(texto);
@@ -525,7 +554,11 @@ public class ProjetoIntegrador {
 		do {
 			System.out.printf(" 1 - Falar com Dimmy%n 2 - Falar com  Jeff%n 3 - Marcia%n 4 - Sair%n");
 			Falar = input.nextInt();
+
 			if (Falar == 1) {
+				// busca = "MarcosOkay";
+				// Busca(busca);
+				// if (busca == "MarcosOkay")
 				QuestioDimmy();
 				break;
 
@@ -549,19 +582,19 @@ public class ProjetoIntegrador {
 		do {
 			if (Falar == 1) {
 				texto = "Thomas é o médico da tribo, ele não consegue fazer muita coisa com os poucos recursos que encontramos, mas ele consegue aliviar o sofrimento de algumas pessoas que buscam ajuda."
-						+ "\nThomas- Olá " + nome + ", você se machucou? Precisa de alguma ajuda?";
+						+ "Thomas\n Olá" + nome + ", você se machucou? Precisa de alguma ajuda?";
 				TypeEffect(texto);
-				System.out.println("\n1 - Sim" + "\n2 - Não");
+				System.out.println(" 1 - Sim\n 2 - Não");
 				opcao = input.nextInt();
 				if (opcao == 1) {
 					texto = "Você mostra algumas feridas deixadas após a grande guerra, mas na muito grave.\n";
 					texto = "-Thomas\nBom, não me parece nada grave.";
 					texto = nome
-							+ "- Muito obrigado pela ajuda, fico feliz em saber o que está fazendo por aqui mesmo com tão pouco..";
+							+ "Muito obrigado pela ajuda, fico feliz em saber o que está fazendo por aqui mesmo com tão pouco..";
 					TypeEffect(texto);
-				} else if (Falar == 2) {
+				} else {
 					System.out.println("-Thomas\n");
-					texto = "Que ótimo que está bem, fico feliz com isso...\n";
+					texto = "Que ótimo que está bem, fico feliz com isso...";
 					TypeEffect(texto);
 				}
 
@@ -570,12 +603,11 @@ public class ProjetoIntegrador {
 
 			} else if (Falar == 3) {
 				QuestioAmy();
-				break;
 
 			} else if (Falar == 4) {
 				MapaVila();
 			}
-		} while (Falar != 4);
+		} while (Falar == 0);
 	}
 
 	public static void SituaPoco() {
@@ -674,6 +706,21 @@ public class ProjetoIntegrador {
 				}
 			}
 		}
+	}
+
+	public static String Busca(String busca) {
+
+		int i = 0;
+
+		do {
+			i++;
+			if (i == 50) {
+				break;
+			}
+		} while (situacao.get(i) == busca);
+		String buscaOk = situacao.get(i);
+		return buscaOk;
+
 	}
 
 	public static void main(String[] args) { // Jogo
