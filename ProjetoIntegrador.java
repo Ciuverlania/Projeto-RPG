@@ -8,8 +8,8 @@ import java.util.Random;
 public class ProjetoIntegrador {
     public static Scanner input = new Scanner(System.in);
     private static String texto, nome;
-    private static boolean MarcosConfirma, DimmyConfirma;
-    private static int desafio, vida = 5, comidaQuantidade, soldadosQuantidade;
+    private static boolean MarcosConfirma, DimmyConfirma, MarciaConfirma, CeciliaConfirma, AmyConfirma, JeffConfirma;
+    private static int desafio, vida = 5, comidaQuantidade, soldadosQuantidade, bonusQuestao, val1 = 0, vidaLuca = 3;
     private static List<String> Comida = new ArrayList<>();
     public static boolean vidaBonus = false;
     private static Random gerador = new Random();
@@ -149,24 +149,30 @@ public class ProjetoIntegrador {
         MarcosConfirma = true;
     }
 
-    public static void QuestioLeo() {
-        if (MarcosConfirma == true) {
+    public static void QuestioLeo() { // Completo. Questionário do Leo
 
+        if (MarcosConfirma == true) {
             texto = "Olá jovem.... depois que seu pai se foi eu sinto que tudo isso está indo de mal a pior....."
                     + " Mas okay, me parece que você já falou com o marcos...";
             TypeEffect(texto);
+            texto = "Vamos lá cara, preciso te testar e vaaamos ser tranquilos aqui, tenho um desafio para você, se você se preocupou bastante então não deve faltar muito pra você"
+                    +
+                    "Seguinte espero que consiga tudo meu jovem...";
+            TypeEffect(texto);
+
+            desafio = 6;
+            desafios();
             if (DimmyConfirma == true) {
                 texto = "Olha, você já falou com o Dimmy, e decidiu explorar um pouco o acampamento... deixa eu te dar uma ajuda...";
                 TypeEffect(texto);
                 comidaQuantidade += 7;
             }
 
-            
         }
 
     }
 
-    public static void QuestioDimmy() { // Completo
+    public static void QuestioDimmy() { // Completo, Questionário do Dimmy (ele só conversa após falar com o Marcos)
         int opcao = 0;
 
         if (MarcosConfirma == true) {
@@ -228,6 +234,15 @@ public class ProjetoIntegrador {
                 desafio = 2;
                 desafios();
                 DimmyConfirma = true;
+
+                texto = "Okay.... então você passou no meu desafio, então vamos lá....." +
+                        "Você pode viajar pelo nosso acampamento a vontade mas só conseguirá conversar com algumas pessoas após conversar com algumas pessoas, parece que ter alguns contatos é importante...\n"
+                        +
+                        "Em cada local da vila vai ter algumas pessoas que você pode e deve conversar, além de que, não se esqueça a primeira vez é a mais importante, e preste muita atenção\n"
+                        +
+                        "algumas pessoas pode te prover mais coisas que você espera...\n" +
+                        "tenha em mente que você deve armazenar o máximo de comida e soldados que puder, confie em mim, você vai precisar....\n";
+                TypeEffect(texto);
             } else {
                 System.out.println("-Dimmy");
                 texto = "Entendo, mas lembre-se, não há ninguém melhor que eu para te mostrar todo o lugar....";
@@ -238,75 +253,113 @@ public class ProjetoIntegrador {
                     + " me parece que você ainda não conversou com o Marcos lá na prefeitura....., deveria passar lá antes de confirmar comigo...";
             TypeEffect(texto);
         }
-
     }
 
-    public static void QuestioJeff() {
-        texto = "Jeff - Me deixe continuar montando isto daqui, tudo bem?\n"
-                + "Ele diz isto enquanto encaixa algumas peças de quebradas de algo que nem ele parece saber.\n";
-        TypeEffect(texto);
-    }
-
-    public static void QuestioMarcia() {
-        texto = "Marcia está tão destraída, que não percebe sua presença...\n";
-        TypeEffect(texto);
-    }
-
-    public static void QuestioCecilia() {
-        int opcao = 0;
-        texto = "Você entra na prefeitura e pensando em um plano para organizar as pessoas da tribo, com isso vocês conseguiram sobreviver por mais tempo.\n"
-                + "Cecilia- Eu posso te oferecer uma ajuda com a organização?\n";
-        TypeEffect(texto);
-        System.out.println(" \r1 - Sim\n2 -Não");
-        opcao = input.nextInt();
-        if (opcao == 1) {
-            desafio = 5;
+    public static void QuestioJeff() { // Completo, Questionário do Jeff (Ele só conversa após falar com o Amy)
+        if (AmyConfirma == true) {
+            texto = "Jeff - Me deixe continuar montando isto daqui, tudo bem?\n"
+                    + "Ele diz isto enquanto encaixa algumas peças de quebradas de algo que nem ele parece saber.\n";
+            TypeEffect(texto);
+            texto = "Olá meu jovem, nem vem enrolar pro meu lado, parece que você já caminhou bastante até aqui....., e concluiu os desafios com a maior tranquilidade, NÉ NÃO?\n"
+                    +
+                    "Então vamos láaaaaa, 'bla bla bla, você tem que aprovar um jovem a lider da vila',  okay okay então lá vai meu teste...";
+            TypeEffect(texto);
+            desafio = 4;
             desafios();
+            JeffConfirma = true;
         } else {
-            System.out.println("-Cecilia");
-            texto = "Ótimo, será um prazer ajudar.";
+            texto = "Você deve falar com a Amy antes de falar comigo......Doidera, falei na terceira pessoa....";
             TypeEffect(texto);
         }
-        texto = "Vocês montam um plano de organização e comunica as pessoas da tribo, porém, durante os primeiros dias elas parecem não estarem muito satisfeitas...."
-                + "Por qual motivo isso ocorreu?\n";
-        TypeEffect(texto);
-        if (opcao == 1) {
-            desafio = 5;
-            desafios();
-        } else {
-            System.out.println("-Cecilia");
-            texto = "Você terá de bolar um plano sozinho.\n";
-            desafio = 5;
-            desafios();
-        }
-
     }
 
-    public static void QuestioAmy() {
-        int opcao = 0;
+    public static void QuestioMarcia() { // Completo, questionário da Marcia (Ela só conversa após falar com o Dimmy)
 
-        texto = "Amy é a enfermeira chefe do hospital improvisado de nossa tribo. Ela precisa de ajuda para organizar as coisas por lá."
-                + "E não há ninguem melhor para ajuda-la do que você!\n";
-        TypeEffect(texto);
-        System.out.println("Você quer ajudar a Amy?");
-        System.out.println("1- SIM \n2- NÃO");
-        opcao = input.nextInt();
+        if (DimmyConfirma == true) {
+            texto = "Marcia está tão destraída, que não percebe sua presença....\n";
+            TypeEffect(texto);
+            System.out.println(" -" + nome);
+            texto = "Hm? o..Olá, me falaram de você " + nome
+                    + " como foi sua aventura? espero q o dimmy tenha te explicado bem em como funciona nossa vila....";
+            TypeEffect(texto);
 
-        if (opcao == 1) {
-            desafio = 7;
+            texto = "Okay acredito que seja o momento de eu te aceitar como novo lider...";
+            TypeEffect(texto);
+            desafio = 3;
             desafios();
-        } else if (opcao == 2) {
-            System.out.println("Amy parece decepcionada...\n");
-            ;
+            MarciaConfirma = true;
         } else {
-            System.out.println("Digite um número válido\n");
+            texto = "Olá, vi que você ainda não falou com o Dimmy.....";
+            TypeEffect(texto);
+            System.out.println("Fale com o Dimmy antes de falar com Marcia");
+        }
+    }
+
+    public static void QuestioCecilia() { // Compelto, questionário da Cecilia (Ela só conversa após falar com a Marcia)
+        int opcao = 0;
+        if (MarciaConfirma == true) {
+            texto = "Você entra na prefeitura e pensando em um plano para organizar as pessoas da tribo, com isso vocês conseguiram sobreviver por mais tempo.\n"
+                    + "Cecilia- Eu posso te oferecer uma ajuda com a organização?\n";
+            TypeEffect(texto);
+            System.out.println(" \r1 - Sim\n2 -Não");
+            opcao = input.nextInt();
+            if (opcao == 1) {
+                desafio = 5;
+                desafios();
+            } else {
+                System.out.println("-Cecilia");
+                texto = "Ótimo, será um prazer ajudar.";
+                TypeEffect(texto);
+            }
+            texto = "Vocês montam um plano de organização e comunica as pessoas da tribo, porém, durante os primeiros dias elas parecem não estarem muito satisfeitas...."
+                    + "Por qual motivo isso ocorreu?\n";
+            TypeEffect(texto);
+            if (opcao == 1) {
+                desafio = 5;
+                desafios();
+            } else {
+                System.out.println("-Cecilia");
+                texto = "Você terá de bolar um plano sozinho.\n";
+                TypeEffect(texto);
+                desafio = 5;
+                desafios();
+            }
+            CeciliaConfirma = true;
+        } else {
+            texto = "Você ainda deve falar com a Marcia para prosseguir...";
+            TypeEffect(texto);
+        }
+    }
+
+    public static void QuestioAmy() { // Completo, questionário da Amy (Ela só conversa após falar com a Cecilia)
+        int opcao = 0;
+        if (CeciliaConfirma == true) {
+            texto = "Amy é a enfermeira chefe do hospital improvisado de nossa tribo. Ela precisa de ajuda para organizar as coisas por lá."
+                    + "E não há ninguem melhor para ajuda-la do que você!\n";
+            TypeEffect(texto);
+            System.out.println("Você quer ajudar a Amy?");
+            System.out.println("1- SIM \n2- NÃO");
+            opcao = input.nextInt();
+
+            if (opcao == 1) {
+                desafio = 7;
+                desafios();
+                AmyConfirma = true;
+            } else if (opcao == 2) {
+                System.out.println("Amy parece decepcionada...\n");
+                ;
+            } else {
+                System.out.println("Digite um número válido\n");
+            }
+        } else {
+            System.out.println("Você ainda deve falar com Cecilia para poder prosseguir...");
         }
     }
 
     public static void desafios() {
         int opcao = 0, chance1 = 0;
         String texto, desafio1;
-        if (desafio == 1) { // feito
+        if (desafio == 1) { // feito (Utilizado no Marcos)
             do {
                 chance1 = 1;
                 System.out.println(" -Moon Presence");
@@ -328,14 +381,14 @@ public class ProjetoIntegrador {
                         texto = "Você acertou de primeira, isso influenciará seu futuro...\n";
                         TypeEffect(texto);
                         desafio1 = "certo";
-                        
+
                         vida -= 1;
                         checaVida();
                     } else {
                         texto = "Você errou de primeira, isso influenciará no seu futuro.....infelizmente\n";
                         TypeEffect(texto);
                         desafio1 = "errado";
-                        
+
                         vida -= 1;
                         checaVida();
                     }
@@ -343,10 +396,53 @@ public class ProjetoIntegrador {
                 chance1 += 1;
             } while (opcao != 3);
 
-            
-        } else if (desafio == 2) {
+        } else if (desafio == 2) { // Feito, Resposta (3) (Utilizado no Dimmy)
+            texto = "Considerando as afirmações abaixo sobre as escolas da Administração...\n + " +
+                    " I - Para Taylor, a organização e a Administração devem ser estudadas e tratadas cientificamente, para possibilitar a execução dos trabalhos com máxima produção\n"
+                    +
+                    "a minimo custo.\n" +
+                    " II - Henry Ford é um dos responsáveis pelo elevado grau de desenvolvimento da atual organização empresarial, no que diz respeito às peças padronizadas e ao\n "
+                    +
+                    "trabalhador especializado.\n" +
+                    " III - Para Max Weber, as organizações formais, apresentam três características que formam o tipo ideal da burocracia: formalidade, impessoalidade e profissionalismo.\n"
+                    +
+                    " IV - Dentre os princípios de administração abordados por Fayol, destacam-se: divisão do trabalho, disciplina, interesse individual, importância na descentralização e a\n"
+                    +
+                    "existência da dualidade de comando.\n";
+            TypeEffect(texto);
+            System.out.println(" 1 - Apenas I e II estão corretas\n" +
+                    " 2 - Apenas III e IV estão corretas\n" +
+                    " 3 - Apenas I, II e III estão corretas\n" +
+                    " 4 - Apenas I e IV estão corretas\n" +
+                    " 5 - I, II, III e IV\n");
+            opcao = input.nextInt();
+            switch (opcao) {
+                case 1:
+                    System.out.println("Errou!");
+                    vida -= 1;
 
-        } else if (desafio == 3) { // feito
+                    break;
+                case 2:
+                    System.out.println("Errou!");
+                    vida -= 1;
+
+                    break;
+                case 3:
+                    System.out.println("ACERTOOOU!");
+
+                    break;
+                case 4:
+                    System.out.println("Errou!");
+                    vida -= 1;
+                    break;
+                case 5:
+                    System.out.println("Errou!");
+                    vida -= 1;
+                    break;
+
+            }
+
+        } else if (desafio == 3) { // feito, Resposta () (Utilizado na Marcia)
 
             texto = "\n\nDesafio\n"
                     + "Como você deve saber, a Administração Científica foi desenvolvida por Frederick Taylor e por isso é frequentemente chamada também de Taylorismo\n"
@@ -379,7 +475,7 @@ public class ProjetoIntegrador {
 
             } while (opcao != 2);
 
-        } else if (desafio == 4) { // feito
+        } else if (desafio == 4) { // feito, Resposta () (Utilizado no Jeff)
 
             texto = "\n\nDesafio\n"
                     + "Muito bem, vamos partir então para a Administração Clássica. Esta já foi idealizada por Henri Fayol e também é conhecida como Fayolismo\n"
@@ -417,7 +513,7 @@ public class ProjetoIntegrador {
 
             } while (opcao != 3);
 
-        } else if (desafio == 5) { // feito
+        } else if (desafio == 5) { // feito, Resposta () (Utilizado na Cecilia)
             System.out.println("A teoria de Hezberg trata-se de um estudo que teve como objetivo entender os fatores\n"
                     + "responsáveis pela motivação e satisfação das pessoas em um ambiente de trabalho");
             System.out.println("Com base nisso, qual foi a conclusão desta teoria?\n"
@@ -430,11 +526,11 @@ public class ProjetoIntegrador {
                 System.out.println("ACERTOOOOU!");
             } else {
                 System.out.println("ERROOOOU!");
-                vida--;
+                vida -= 1;
                 checaVida();
             }
 
-        } else if (desafio == 6) { // feito
+        } else if (desafio == 6) { // feito, Resposta () (Utilizado no Leo)
             System.out.println(
                     "A teoria de McClelland é explicar a importância dos processos psicológicos no desenvolvimento econômico,\n"
                             + "estudar valores e motivações que levam os homens a explorar oportunidades e tirar vantagens das condições favoráveis do comércio ");
@@ -453,7 +549,7 @@ public class ProjetoIntegrador {
                 }
 
             }
-        } else if (desafio == 7) { // feito
+        } else if (desafio == 7) { // feito, Resposta () (Utilizado na Amy)
             texto = "Amy tira algumas anotações de seu bolso e você se assusta. Ela parece estar pensando muito sobre isso.\n";
             TypeEffect(texto);
 
@@ -495,9 +591,40 @@ public class ProjetoIntegrador {
                 }
             } while (opcao != 4);
 
-        } else if (desafio == 8) {
-            // desafio
+        } else if (desafio == 8) { // feito, Resposta () ()
 
+            texto = "Taylor (1856-1915) defendeu a ideia da “Racionalização do Trabalho”,\n" +
+                    "ao perceber que a perda de tempo pelos colaboradores nos processos produtivos se dava por desconhecimento das suas funções."
+                    +
+                    "Frederick Taylor, em um de seus legados escritos “Princípios da Administração Científica”, apresentou quatro princípios fundamentais na racionalização do trabalho, EXCETO:";
+            TypeEffect(texto);
+            System.out.println(" 1 - Príncipio do Planejamento.\n" +
+                    " 2 - Príncipio da Preparação dos Trabalhadores.\n" +
+                    " 3 - Princípio do Custo.\n" +
+                    " 4 - Princípio do Controle.\n" +
+                    " 5 -  Princípio da Execução.\n");
+            opcao = input.nextInt();
+            switch (opcao) {
+                case 1:
+                    System.out.println("Errou");
+                    vida = -1;
+                    break;
+                case 2:
+                    System.out.println("Errou");
+                    vida = -1;
+                    break;
+                case 3:
+                    System.out.println("Acertou!!");
+                    break;
+                case 4:
+                    System.out.println("Errou");
+                    vida = -1;
+                    break;
+                case 5:
+                    System.out.println("Errou");
+                    vida = -1;
+                    break;
+            }
         }
     }
 
@@ -547,16 +674,53 @@ public class ProjetoIntegrador {
 
             } else if (Falar == 2) {
                 QuestioLeo();
+                break;
 
             } else if (Falar == 3) {
-                // conversa
+                int val = 0, conselho;
+                if (vidaLuca == 3) {
+                    if (val == 0) {
+                        texto = "Meus pais me contaram que existiram tempos onde as coisas eram incríveis...\n" +
+                                "Sabe.... carros voa 'snif...' voadores, prédiso incríveis, pessoas andando por ruas 'snif...' IMENSAS.... sabe"
+                                + nome + "O tio Dammy me contou que eles se foram...\n" +
+                                "Eu não entendo como exatamente se foram, mas ele me disse que não vão mais voltar....\n"
+                                + "Sabe eu gostaria muito de poder conversar mais um pouco com meu pai....";
+                        val++;
+                        TypeEffect(texto);
+                        texto = "Sabe o que você recomendaria que eu fizesse?, me sinto muito sozinho atualmente";
+                        TypeEffect(texto);
+                        texto = "Aconselhe com duidado o pequeno Luca....";
+                        TypeEffect(texto);
+                        System.out.println("1 - Deveria brincar um pouco." +
+                                " 2 - Deveria conversar mais com as pessoas da Vila, seus pais gostariam disso." +
+                                "3 - Sei lá pequeno, procura algo");
+                        conselho = input.nextInt();
+                        if (conselho == 1) {
+                            vidaLuca--;
+                            texto = ".....Luca não parece muito contente com sua opinião...";
+                        } else if (conselho == 2) {
+                            texto = "Claro.... acredito que vocês possam me ajudar....";
+                            TypeEffect(texto);
+                        } else if (conselho == 3) {
+                            texto = "O pequeno Luca sai cabisbaixo com sua ignorância...";
+                            vidaLuca = 0;
+                        }
+                    }
+                }
 
+                if (val1 == 1) {
+                    texto = "Assim, eu tinha ido até o poço algumas vezes, sinto que lá eu fico menos sozinho, é como se minha mãe me vigiasse.... sinto falta dela\n"
+                            +
+                            "mas mesmo assim, queria que estivessem comigo ainda, gostaria de ver o quão incrível era o mundo em que eles contam...";
+                    TypeEffect(texto);
+
+                }
             } else if (Falar == 4) {
-                MapaVila();
+                break;
 
             }
         } while (Falar == 0);
-        return;
+
     }
 
     public static void SituaTendas() { // Localizaçao das tendas
@@ -583,12 +747,12 @@ public class ProjetoIntegrador {
     }
 
     public static void SituaHospital() { // Localizaçao do Hospital
-        int Falar, opcao;
-
-        System.out.printf(" 1 - Falar com Thomas%n 2 - Falar com  Dammy%n 3 - Amy%n 4 - Sair%n");
-        Falar = input.nextInt();
+        int Falar, opcao, val = 0;
         do {
+            System.out.printf(" 1 - Falar com Thomas%n 2 - Falar com  Dammy%n 3 - Amy%n 4 - Sair%n");
+            Falar = input.nextInt();
             if (Falar == 1) {
+
                 texto = "Thomas é o médico da tribo, ele não consegue fazer muita coisa com os poucos recursos que encontramos, mas ele consegue aliviar o sofrimento de algumas pessoas que buscam ajuda."
                         + "\nThomas- Olá " + nome + ", você se machucou? Precisa de alguma ajuda?";
                 TypeEffect(texto);
@@ -596,25 +760,44 @@ public class ProjetoIntegrador {
                 opcao = input.nextInt();
                 if (opcao == 1) {
                     texto = "Você mostra algumas feridas deixadas após a grande guerra, mas na muito grave.\n";
-                    texto = "-Thomas\nBom, não me parece nada grave.";
-                    texto = nome
-                            + "- Muito obrigado pela ajuda, fico feliz em saber o que está fazendo por aqui mesmo com tão pouco..";
                     TypeEffect(texto);
+                    texto = "-Thomas\n Bom, não me parece nada grave.\n";
+                    TypeEffect(texto);
+                    texto = nome + "\n"
+                            + "- Muito obrigado pela ajuda, fico feliz em saber o que está fazendo por aqui mesmo com tão pouco..\n";
+                    TypeEffect(texto);
+                    texto = "Olha só meu jovem, tenha mais cuidado com si mesmo, entenda que agora a responsabilidade da vila não é só sua, e sim de todos\n"
+                            +
+                            "Todos aqui estão preparados para se ajudar, e isso se aplica a você também.... O que aconteceria se um grande lider morresse? exato todos morrem...\n"
+                            +
+                            "Não estou te gorando garoto, mas seu pai sábia isso muito bem, pra ele ter ido, foi por causa de um bem 'maior...'\n";
+                    TypeEffect(texto);
+                    val++;
+                    if (val == 1) {
+                        soldadosQuantidade += 10;
+                        System.out.println("Você ganhou 10 soldados");
+                        System.out.println("Você tem atualmente " + soldadosQuantidade + " soldados");
+                    }
                 } else if (Falar == 2) {
                     System.out.println("-Thomas\n");
                     texto = "Que ótimo que está bem, fico feliz com isso...\n";
                     TypeEffect(texto);
+                    break;
                 }
 
             } else if (Falar == 2) {
-                // conversa
+                texto = "Iae garoto, deve ter percebido que o hospital é um lugar tranquilo... até certo ponto, as macas estão cheias, depois da última viagem que seu pai fez..."
+                        +
+                        "Desculpe, recomendo que fale com o Thomas, ele é alguem que todos admiram, acredito que ele consiga comover as tropas a te ajudar....";
+                TypeEffect(texto);
+                break;
 
             } else if (Falar == 3) {
                 QuestioAmy();
                 break;
 
             } else if (Falar == 4) {
-                MapaVila();
+                break;
             }
         } while (Falar != 4);
     }
@@ -622,6 +805,23 @@ public class ProjetoIntegrador {
     public static void SituaPoco() {
         String texto;
         int escolha;
+        if (vidaLuca == 0) {
+            texto = "Uma das piores cenas aparecem em sua frente...., você cometeu o maior erro em toda sua história, em sua frente tem uma corda presa às astes do poço\n"
+                    +
+                    "Você chega mais perto e o que encontra é o corpo do pequeno Luca e uma carta feita a mão utilizando um lápiz de cor azul claro e uma folha amassada....\n"
+                    +
+                    " -Carta:\n Eu escutei que muitas pessoas recentemente escapavam da vila por não aguentar as coisas.... eu sou forte... era o que meu pai dizia...\n"
+                    +
+                    "então eu fiz o que as vozes pediram :), coloquei a corda de pular no meu pescoço como elas pediram, prendi na madeirinha do poço e lá vou eu, vou deixar uma nota pra avisar\n"
+                    +
+                    "as vozes me disseram que quando eu pulasse eu iria 'para o outro lado', e a mamãe e o papai vão estar lá :)\n tchau gente, espero que eu possa ver vocês logo......\n";
+            TypeEffect(texto);
+            texto = "\n O pesar na sua mente é grande demais para continuar.....";
+            vida = 0;
+            checaVida();
+
+        }
+
         texto = "A unica coisa que você enxerga é um velho poço que os moradores não ousam buscar água, não se sabe como está a qualidade da água....., ainda assim ela é altamente reflexiva..."
                 + "uma voz memorável pede para você olhar o poço, mas você não confia muito nisso...";
         TypeEffect(texto);
@@ -631,13 +831,46 @@ public class ProjetoIntegrador {
         System.out.println("O que você vai fazer?\n 1 - Olhar para o poço\n 2 - Sair");
         escolha = input.nextInt();
         if (escolha == 1) {
-            // Desafio que drena as 3 vidas de uma vez.
-
+            System.out.println(" -MoonPresence");
+            texto = "Eu tenho um desafio para você, se você aceitar, terá um grande prêmio...., mas o preço do erro é muito caro....\n";
+            System.out.println("Você aceita o desafio?:\n" + " 1 - Sim\n 2 - Não");
+            System.out.print("Responda: ");
+            escolha = input.nextInt();
+            switch (escolha) {
+                case 1:
+                    System.out.println(
+                            "Então vamos lá.... \n O que aconteceria com um garote se você não desse a devida atenção para ele?");
+                    System.out.println(
+                            "1 - Ele viveria feliz para sempre \n 2 - Ele provaria sua inocência\n 3 - Ele iria atrás dos pais dele....?");
+                    escolha = input.nextInt();
+                    switch (escolha) {
+                        case 1:
+                            texto = "Errado... vou te deixar uma dica, tome cuidado com seus amigos e contatos...., ainda mais quando alguém tão jovem precisa de amparo...";
+                            TypeEffect(texto);
+                            break;
+                        case 2:
+                            texto = "Errado.... tome cuidado, você ja deve saber que o mundo não tolera mais isso...";
+                            TypeEffect(texto);
+                            texto = "Mas vamos lá, vou te dar algo que possa te ajudar...., mas ainda tome cuidado, sempre proteja o futuro.";
+                            soldadosQuantidade += 15;
+                            comidaQuantidade += 15;
+                            break;
+                        case 3:
+                            texto = "Certo? NÃO, errado, em partes....";
+                            TypeEffect(texto);
+                            break;
+                    }
+                    break;
+                case 2:
+                    texto = "Tranquilo, mas não volte aqui, caso você tenha estragado o 'futuro'...";
+                    TypeEffect(texto);
+                    break;
+            }
         } else {
             texto = "Foi uma boa escolha.......";
             TypeEffect(texto);
         }
-        MapaVila();
+
     }
 
     public static String tutorial() { // Tutorial do jogo, função criada para ser chamado no menu.
