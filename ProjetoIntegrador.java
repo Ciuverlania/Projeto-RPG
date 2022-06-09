@@ -1,16 +1,6 @@
-/*
-Trabalho de conclusão da disciplina Projeto Integrador I - Turma A Noturno - 1º semestre/2022
-Professor: Eduardo Takeo
-Integrantes: Bianca de Oliveira,
-             Ciuverlania Andrade,
-             Eduardo Oliveira,
-             Enzo Costa.
-*/
-
-package pi;
-
 import java.util.List;
 import java.lang.ProcessBuilder.Redirect.Type;
+import java.rmi.MarshalledObject;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
@@ -18,11 +8,74 @@ import java.util.Random;
 public class ProjetoIntegrador {
     public static Scanner input = new Scanner(System.in);
     private static String texto, nome;
-    private static boolean MarcosConfirma, DimmyConfirma, MarciaConfirma, CeciliaConfirma, AmyConfirma, JeffConfirma;
-    private static int desafio, vida = 5, comidaQuantidade, soldadosQuantidade, bonusQuestao, val1 = 0, vidaLuca = 3, somaDesafio = 0;
+    private static boolean MarcosConfirma, DimmyConfirma, MarciaConfirma, CeciliaConfirma, AmyConfirma, JeffConfirma
+            ;
+    private static int desafio, vida = 5, comidaQuantidade, soldadosQuantidade, bonusQuestao, val1 = 0, vidaLuca = 3,
+            somaDesafio = 0, P1 = 0, puxafinal = 8;
     private static List<String> Comida = new ArrayList<>();
     public static boolean vidaBonus = false;
     private static Random gerador = new Random();
+
+    public static void FinalizaJogo() {
+        if (puxafinal == 8) {
+            System.out.println("-MoonPresence");
+            texto = "Okay garoto, você completou ganhou a confiança de todos ali, isso me impressionou... o suficiente....\n";
+            TypeEffect(texto);
+            System.out.println(nome);
+            texto = "Okay okay, tá, eu tive muito trabalho até agora, então, afinal.... para que tudo isso?\n";
+            TypeEffect(texto);
+            System.out.println("-MoonPresence");
+            texto = "Olha meu jovem, eu tenho uma missão final para você, só temos que saber o resultado das suas escolhas....., eu lhe avisei muitas vezes decidi te dar conselhos"
+                    +
+                    "fui como uma mãe para você então não me desaponte.....\n";
+            TypeEffect(texto);
+
+            texto = "-MooonPresgda\n";
+            TypeEffect(texto);
+            texto = "-Mooongdala\n";
+            TypeEffect(texto);
+            texto = " -Amgdala\n";
+            TypeEffect(texto);
+            System.out.println("-Amgdala\n");
+            texto = "Garoto, eu me apeguei demais a você, não devia ter feito isso........, vou te levar para o campo, e isso definirá suas escolhas....\n";
+            TypeEffect(texto);
+            System.out.println(nome);
+            texto = "Acho que to começando a te entender, o porque meu pai ter morrido, o porque de todos não me contarem nada, o fato de Luca estar sozinho mesmo sento tão novo\n";
+            TypeEffect(texto);
+            System.out.println("-Amgdala");
+            texto = "NÃO OUSE FALAR, EU FUI PROTETORA COM VOCÊ, EU TE TROUXE ATÉ AQUI!\n";
+            TypeEffect(texto);
+            System.out.println(nome);
+            texto = "Um dia escutei uma história, sobre como o mundo é influenciado pela existencia da lua, sabe, um papo estranho sobre gravidade e ondas maritimas....\n"
+                    +
+                    " Parando para pensar, em como você se apresentou, eu lembrei que em locais litoraneos era muito comum as coisas terem uma vida útil menor por conta do excesso de sal do mar..."
+                    +
+                    " O fim de tudo e todo esse ciclo vicioso que.... VOCÊ CRIOU, nos tratanto desse jeito em prol de meros sacríficios para você, fazendo que todos morram e se matem em prol do seu prazer...\n"
+                    +
+                    " Meu pai, os pais do Luca, todos, não só da nossa vila, mas em todos os lugares, nos levando a uma noite sem fim....\n"
+                    +
+                    "";
+            TypeEffect(texto);
+            System.out.println("-Amgdala");
+            texto = "ótimas mães como eu sempre se preocupa em cuidar de seus filhos, eu não me importo sobre esse seu papo de o que eu devo fazer, vocês nasceram de mim\n"
+                    +
+                    "E VÃO MORRER POR MIM";
+            TypeEffect(texto);
+            System.out.println("-Marcos");
+            texto = "Jovem, espere, nós temos uma chance ainda, lembro do dia em que seu pai foi enganado por essa salafrária...";
+            TypeEffect(texto);
+            System.out.println("-Amgdala");
+            texto = "MARCOS, NÃO OUSE";
+            TypeEffect(texto);
+            System.out.println("-Marcos");
+            texto = "Preste atenção e me fale, temos soldados e comida o suficiente para viver sem depender dos poderes dela?";
+            TypeEffect(texto);
+
+            System.out.println("Você acumulou um total de " + comidaQuantidade + " comida e " + soldadosQuantidade
+                    + "soldados para seu exercito");
+
+        }
+    }
 
     public static void checaDesafio() {
 
@@ -36,9 +89,9 @@ public class ProjetoIntegrador {
             System.out.println("\nFIM\n");
             System.exit(0);
 
-        }
-        else {
-            System.out.println("\nVocê está no caminho certo, mas ainda existem " + restoDesafio + " desafios a serem completados.\n");
+        } else {
+            System.out.println("\nVocê está no caminho certo, mas ainda existem " + restoDesafio
+                    + " desafios a serem completados.\n");
         }
     }
 
@@ -90,95 +143,102 @@ public class ProjetoIntegrador {
     }
 
     public static void QuestioMarcos() { // Completo. Questionário do Marcos
-        int resposta = 0, Planta;
+        int resposta = 0, Planta, cont;
+        boolean verify = false;
         String texto;
-
-        texto = "Seja Bem Vindo(a) " + nome + " algumas coisas me preocupam, ainda mais depois da morte do seu pai....";
-        TypeEffect(texto);
-        texto = "Sabemos que você possui muitos conhecimentos em administração, e é por isso que o nomeamos como líder de nossa tribo, tenho certeza de que sua ajuda nos guiará rumo à vitória,\n"
-                + "A tribo te escolheu por meio da Teoria da Personalidade, onde percebendo o seu nível de conhecimento em administração\n"
-                + "te apontaram como um bom líder... ponderamos várias coisas mas adivinha só qual foi o meio utilizado para fazer está escolha?\n";
-        TypeEffect(texto);
-
-        do {
-            System.out.println("1 - Traços Físicos");
-            System.out.println("2 - Traços Sociais");
-            System.out.println("3 - Traços relacionados a tarefa");
-            System.out.print("Responda: ");
-            resposta = input.nextInt();
-
-            switch (resposta) {
-                case 1:
-                    System.out.println(" -Marcos");
-                    texto = "Apesar de sua boa aparência (diga-se de passagem), este não foi o motivo no qual eles te escolheram.\n";
-                    TypeEffect(texto);
-                    System.out.println(" -" + nome);
-                    texto = "Não é como se eu precisasse disso nos dias atuais\n";
-                    TypeEffect(texto);
-                    vida -= 1;
-                    checaVida();
-                    break;
-                case 2:
-                    System.out.println(" -Marcos");
-                    texto = "Suas habilidades administrativas foram o motivo no qual eles te escolheram, sua inteligência para gerir e organizar nossa tribo será fundamental para a sobrevivência.\n";
-                    TypeEffect(texto);
-                    System.out.println(" -" + nome);
-                    texto = "Acho isso um pouco de mais pra mim\n";
-                    TypeEffect(texto);
-                    break;
-                case 3:
-                    System.out.println(" -Marcos");
-                    texto = "Realmente, sua comunicação e persistência são admiráveis, mas este não é o motivo correto.\n";
-                    TypeEffect(texto);
-                    System.out.println(" -" + nome);
-                    texto = "Agradeço, e acredito que realmente vai me ser necessário\n";
-                    TypeEffect(texto);
-                    vida -= 1;
-                    checaVida();
-                    break;
-                default:
-                    System.out.println("Opção inválida!");
-            }
-        } while (resposta != 2);
-
-        texto = "Tenho uma missão para você, em alguns dias estaremos em tempo de colheita, mas não plantamos nada ainda, temos algumas opções de plantio: \n"
-                + " 1 - Plantar Chirivias\n" + " 2 - Plantar Morangos\n" + " 3 - Plantar Maçã\n"
-                + " 4 - Plantar Beterrabas\n" + " 5 - Plantar Couve\n" + " 6 - Não plantar nada\n";
-        TypeEffect(texto);
-        System.out.print("Responda: ");
-        Planta = input.nextInt();
-        if (Planta == 6) {
-            texto = "Você fez uma péssima escolha.... infelizmente";
+        if (MarcosConfirma == false) {
+            texto = "Seja Bem Vindo(a) " + nome
+                    + " algumas coisas me preocupam, ainda mais depois da morte do seu pai....";
             TypeEffect(texto);
-            String NaoPlant = "Nao";
-            Comida.add(NaoPlant);
-        } else if (Planta == 1) {
-            Comida.add("Chirivias");
-            comidaQuantidade += gerador.nextInt(6, 10);
-            ;
-        } else if (Planta == 2) {
-            Comida.add("Morangos");
-            comidaQuantidade += gerador.nextInt(3, 6);
-            ;
-        } else if (Planta == 3) {
-            Comida.add("Maçã");
-            comidaQuantidade += gerador.nextInt(1, 3);
-            ;
-        } else if (Planta == 4) {
-            Comida.add("Beterrabas");
-            comidaQuantidade += gerador.nextInt(2, 5);
-            ;
-        } else if (Planta == 5) {
-            Comida.add("Couve");
-            comidaQuantidade += gerador.nextInt(2, 4);
+            texto = "Sabemos que você possui muitos conhecimentos em administração, e é por isso que o nomeamos como líder de nossa tribo, tenho certeza de que sua ajuda nos guiará rumo à vitória,\n"
+                    + "A tribo te escolheu por meio da Teoria da Personalidade, onde percebendo o seu nível de conhecimento em administração\n"
+                    + "te apontaram como um bom líder... ponderamos várias coisas mas adivinha só qual foi o meio utilizado para fazer está escolha?\n";
+            TypeEffect(texto);
+
+            do {
+                System.out.println("1 - Traços Físicos");
+                System.out.println("2 - Traços Sociais");
+                System.out.println("3 - Traços relacionados a tarefa");
+                System.out.print("Responda: ");
+                resposta = input.nextInt();
+
+                switch (resposta) {
+                    case 1:
+                        System.out.println(" -Marcos");
+                        texto = "Apesar de sua boa aparência (diga-se de passagem), este não foi o motivo no qual eles te escolheram.\n";
+                        TypeEffect(texto);
+                        System.out.println(" -" + nome);
+                        texto = "Não é como se eu precisasse disso nos dias atuais\n";
+                        TypeEffect(texto);
+                        vida -= 1;
+                        checaVida();
+                        break;
+                    case 2:
+                        System.out.println(" -Marcos");
+                        texto = "Suas habilidades administrativas foram o motivo no qual eles te escolheram, sua inteligência para gerir e organizar nossa tribo será fundamental para a sobrevivência.\n";
+                        TypeEffect(texto);
+                        System.out.println(" -" + nome);
+                        texto = "Acho isso um pouco de mais pra mim\n";
+                        TypeEffect(texto);
+                        break;
+                    case 3:
+                        System.out.println(" -Marcos");
+                        texto = "Realmente, sua comunicação e persistência são admiráveis, mas este não é o motivo correto.\n";
+                        TypeEffect(texto);
+                        System.out.println(" -" + nome);
+                        texto = "Agradeço, e acredito que realmente vai me ser necessário\n";
+                        TypeEffect(texto);
+                        vida -= 1;
+                        checaVida();
+                        break;
+                    default:
+                        System.out.println("Opção inválida!");
+                }
+            } while (resposta != 2);
+
+            texto = "Tenho uma missão para você, em alguns dias estaremos em tempo de colheita, mas não plantamos nada ainda, temos algumas opções de plantio: \n"
+                    + " 1 - Plantar Chirivias\n" + " 2 - Plantar Morangos\n" + " 3 - Plantar Maçã\n"
+                    + " 4 - Plantar Beterrabas\n" + " 5 - Plantar Couve\n" + " 6 - Não plantar nada\n";
+            TypeEffect(texto);
+            System.out.print("Responda: ");
+            Planta = input.nextInt();
+            if (Planta == 6) {
+                texto = "Você fez uma péssima escolha.... infelizmente";
+                TypeEffect(texto);
+                String NaoPlant = "Nao";
+                Comida.add(NaoPlant);
+            } else if (Planta == 1) {
+                Comida.add("Chirivias");
+                comidaQuantidade += gerador.nextInt(6, 10);
+                ;
+            } else if (Planta == 2) {
+                Comida.add("Morangos");
+                comidaQuantidade += gerador.nextInt(3, 6);
+                ;
+            } else if (Planta == 3) {
+                Comida.add("Maçã");
+                comidaQuantidade += gerador.nextInt(1, 3);
+                ;
+            } else if (Planta == 4) {
+                Comida.add("Beterrabas");
+                comidaQuantidade += gerador.nextInt(2, 5);
+                ;
+            } else if (Planta == 5) {
+                Comida.add("Couve");
+                comidaQuantidade += gerador.nextInt(2, 4);
+            }
+            desafio = 1;
+            desafios();
+            MarcosConfirma = true;
+        } else {
+            System.out.println("\nVocê já falou com Marcos");
         }
-        desafio = 1;
-        desafios();
-        MarcosConfirma = true;
     }
 
     public static void QuestioLeo() { // Completo. Questionário do Leo
-
+        int Planta = 0;
+        boolean verify = false;
+        if (verify == false) {
         if (MarcosConfirma == true) {
             texto = "\nOlá jovem.... depois que seu pai se foi eu sinto que tudo isso está indo de mal a pior....."
                     + " Mas okay, me parece que você já falou com o marcos...\n";
@@ -190,18 +250,58 @@ public class ProjetoIntegrador {
 
             desafio = 6;
             desafios();
-            if (DimmyConfirma == true) {
-                texto = "Olha, você já falou com o Dimmy, e decidiu explorar um pouco o acampamento... deixa eu te dar uma ajuda...";
-                TypeEffect(texto);
-                comidaQuantidade += 7;
+            if (P1 == 0) {
+
+                if (DimmyConfirma == true) {
+                    texto = "Olha, você já falou com o Dimmy, e decidiu explorar um pouco o acampamento... deixa eu te dar uma ajuda...";
+                    TypeEffect(texto);
+                    texto = "Atualmente estou um pouco ocupado com as fazendas, e percebi que você  já plantou alguma coisa... "
+                            + Comida.get(0) + " interessante\n" +
+                            "Acredito que você ter plantado " + Comida.get(0) + " vai nos ajudar bastante!";
+                    TypeEffect(texto);
+                    texto = "Aproveitando que você está aqui, preciso que você me indique qual o principal alimento vamos plantar, entendo que "
+                            + Comida.get(0) + "vai nos ajudar\n" +
+                            "Mas quero uma resposta agora, o que você quer como alimento principal?\n";
+                    TypeEffect(texto);
+                    System.out.println(
+                            " 1 - Chirivias\n 2 - Morangos\n 3 - Maçãs... (Eu particularmente não recomendo por dar poucos resultados)\n 4 - Beterrabas\n 5 - Couves\n 6 - Não Plantar\n");
+                    System.out.print("Responda: ");
+                    Planta = input.nextInt();
+
+                    if (Planta == 6) {
+                        texto = "Você fez uma péssima escolha.... infelizmente";
+                        TypeEffect(texto);
+                        String NaoPlant = "Nao";
+                        Comida.add(NaoPlant);
+                    } else if (Planta == 1) {
+                        Comida.add("Chirivias");
+                        comidaQuantidade += gerador.nextInt(6, 10);
+                        ;
+                    } else if (Planta == 2) {
+                        Comida.add("Morangos");
+                        comidaQuantidade += gerador.nextInt(3, 6);
+                        ;
+                    } else if (Planta == 3) {
+                        Comida.add("Maçãs");
+                        comidaQuantidade += gerador.nextInt(1, 3);
+                        ;
+                    } else if (Planta == 4) {
+                        Comida.add("Beterrabas");
+                        comidaQuantidade += gerador.nextInt(2, 5);
+                        ;
+                    } else if (Planta == 5) {
+                        Comida.add("Couves");
+                        comidaQuantidade += gerador.nextInt(2, 4);
+                    }
+                    P1++;
+                } else {
+                    texto = "\nFale com Marcos primeiro.\n";
+                    TypeEffect(texto);
+                }
             }
-
-        }
-        else {
-            texto = "\nFale com Marcos primeiro.\n";
-            TypeEffect(texto);
         }
 
+    }
     }
 
     public static void QuestioDimmy() { // Completo, Questionário do Dimmy (ele só conversa após falar com o Marcos)
@@ -274,6 +374,8 @@ public class ProjetoIntegrador {
                         +
                         "algumas pessoas pode te prover mais coisas que você espera...\n" +
                         "tenha em mente que você deve armazenar o máximo de comida e soldados que puder, confie em mim, você vai precisar....\n";
+                TypeEffect(texto);
+                texto = "Aliás, recomendo que você fale com o Leo na Prefeitura e de uma atenção ao pequeno Luca....";
                 TypeEffect(texto);
             } else {
                 System.out.println("-Dimmy");
@@ -409,7 +511,6 @@ public class ProjetoIntegrador {
                         somaDesafio++;
                         checaDesafio();
 
-                        
                     } else {
                         texto = "Você errou de primeira, isso influenciará no seu futuro.....infelizmente\n";
                         TypeEffect(texto);
@@ -421,6 +522,8 @@ public class ProjetoIntegrador {
                 }
                 chance1 += 1;
             } while (opcao != 3);
+            puxafinal++;
+            FinalizaJogo();
 
         } else if (desafio == 2) { // Feito, Resposta (3) (Utilizado no Dimmy)
             texto = "Considerando as afirmações abaixo sobre as escolas da Administração...\n + " +
@@ -438,49 +541,50 @@ public class ProjetoIntegrador {
             TypeEffect(texto);
 
             do {
-            System.out.println(" 1 - Apenas I e II estão corretas\n" +
-                    " 2 - Apenas III e IV estão corretas\n" +
-                    " 3 - Apenas I, II e III estão corretas\n" +
-                    " 4 - Apenas I e IV estão corretas\n" +
-                    " 5 - I, II, III e IV\n");
-            opcao = input.nextInt();
+                System.out.println(" 1 - Apenas I e II estão corretas\n" +
+                        " 2 - Apenas III e IV estão corretas\n" +
+                        " 3 - Apenas I, II e III estão corretas\n" +
+                        " 4 - Apenas I e IV estão corretas\n" +
+                        " 5 - I, II, III e IV\n");
+                opcao = input.nextInt();
 
-            switch (opcao) {
-                case 1:
-                    System.out.println("Errou!");
-                    vida -= 1;
-                    checaVida();
+                switch (opcao) {
+                    case 1:
+                        System.out.println("Errou!");
+                        vida -= 1;
+                        checaVida();
 
-                    break;
-                case 2:
-                    System.out.println("Errou!");
-                    vida -= 1;
-                    checaVida();
+                        break;
+                    case 2:
+                        System.out.println("Errou!");
+                        vida -= 1;
+                        checaVida();
 
-                    break;
-                case 3:
-                    System.out.println("ACERTOOOU!");
-                    somaDesafio++;
-                    checaDesafio();
+                        break;
+                    case 3:
+                        System.out.println("ACERTOOOU!");
+                        somaDesafio++;
+                        checaDesafio();
 
-                    break;
-                case 4:
-                    System.out.println("Errou!");
-                    vida -= 1;
-                    checaVida();
-                    break;
-                case 5:
-                    System.out.println("Errou!");
-                    vida -= 1;
-                    checaVida();
-                    break;
-                default:
-                    texto = "Escolha uma opção válida.";
-                    TypeEffect(texto);
+                        break;
+                    case 4:
+                        System.out.println("Errou!");
+                        vida -= 1;
+                        checaVida();
+                        break;
+                    case 5:
+                        System.out.println("Errou!");
+                        vida -= 1;
+                        checaVida();
+                        break;
+                    default:
+                        texto = "Escolha uma opção válida.";
+                        TypeEffect(texto);
 
-            }
-        } while (opcao != 3);
-
+                }
+            } while (opcao != 3);
+            puxafinal++;
+            FinalizaJogo();
         } else if (desafio == 3) { // feito, Resposta () (Utilizado na Marcia)
 
             texto = "\n\nDesafio\n"
@@ -519,6 +623,9 @@ public class ProjetoIntegrador {
                 }
 
             } while (opcao != 2);
+
+            puxafinal++;
+            FinalizaJogo();
 
         } else if (desafio == 4) { // feito, Resposta () (Utilizado no Jeff)
 
@@ -559,54 +666,57 @@ public class ProjetoIntegrador {
                 }
 
             } while (opcao != 3);
-
+            puxafinal++;
+            FinalizaJogo();
         } else if (desafio == 5) { // feito, Resposta () (Utilizado na Cecilia)
             int resposta;
             System.out.println("A teoria de Hezberg trata-se de um estudo que teve como objetivo entender os fatores\n"
                     + "responsáveis pela motivação e satisfação das pessoas em um ambiente de trabalho");
 
             do {
-            System.out.println("Com base nisso, qual foi a conclusão desta teoria?\n"
-                    + "1 - A insatisfação dos colaboradores estão relacionados as questões ambientais\n"
-                    + "2 - Preguiça\n" + "3 - Estão ligadas aos relacionamentos interpessoais, condições de trabalho\n"
-                    + "4 - 1 e 3 são verdadeiras");
-            System.out.print("Responda: ");
-            resposta = input.nextInt();
-            if (resposta == 4) {
-                System.out.println("ACERTOOOOU!");
-                somaDesafio++;
-                checaDesafio();
-            } else {
-                System.out.println("ERROOOOU!");
-                vida -= 1;
-                checaVida();
-            }
-        } while (resposta != 4);
-
+                System.out.println("Com base nisso, qual foi a conclusão desta teoria?\n"
+                        + "1 - A insatisfação dos colaboradores estão relacionados as questões ambientais\n"
+                        + "2 - Preguiça\n"
+                        + "3 - Estão ligadas aos relacionamentos interpessoais, condições de trabalho\n"
+                        + "4 - 1 e 3 são verdadeiras");
+                System.out.print("Responda: ");
+                resposta = input.nextInt();
+                if (resposta == 4) {
+                    System.out.println("ACERTOOOOU!");
+                    somaDesafio++;
+                    checaDesafio();
+                } else {
+                    System.out.println("ERROOOOU!");
+                    vida -= 1;
+                    checaVida();
+                }
+            } while (resposta != 4);
+            puxafinal++;
+            FinalizaJogo();
         } else if (desafio == 6) { // feito, Resposta () (Utilizado no Leo)
             int resposta;
             do {
-            System.out.println(
-                    "A teoria de McClelland é explicar a importância dos processos psicológicos no desenvolvimento econômico,\n"
-                            + "estudar valores e motivações que levam os homens a explorar oportunidades e tirar vantagens das condições favoráveis do comércio ");
-            System.out.println("Quais são as 3 necessidades da teoria de McClelland?\n"
-                    + "1 - Poder, Vantagens, Exploração\n" + "2 - Afiliação, Realização, Poder\n"
-                    + "3 - Apenas 4 está correta\n" + "4 - Exploração, Afiliação, Vantagens\n");
-            System.out.println("Responda: ");
+                System.out.println(
+                        "A teoria de McClelland é explicar a importância dos processos psicológicos no desenvolvimento econômico,\n"
+                                + "estudar valores e motivações que levam os homens a explorar oportunidades e tirar vantagens das condições favoráveis do comércio ");
+                System.out.println("Quais são as 3 necessidades da teoria de McClelland?\n"
+                        + "1 - Poder, Vantagens, Exploração\n" + "2 - Afiliação, Realização, Poder\n"
+                        + "3 - Apenas 4 está correta\n" + "4 - Exploração, Afiliação, Vantagens\n");
+                System.out.println("Responda: ");
 
-            
-            resposta = input.nextInt();
-            if (resposta == 2) {
-                System.out.println("Parabéns, acertou na mosca!");
-                somaDesafio++;
-                checaDesafio();
-            } else {
-                System.out.println("Que pena você errou!");
+                resposta = input.nextInt();
+                if (resposta == 2) {
+                    System.out.println("Parabéns, acertou na mosca!");
+                    somaDesafio++;
+                    checaDesafio();
+                } else {
+                    System.out.println("Que pena você errou!");
                     vida -= 1;
-                    checaVida(); 
-            }
+                    checaVida();
+                }
             } while (resposta != 2);
-
+            puxafinal++;
+            FinalizaJogo();
         } else if (desafio == 7) { // feito, Resposta () (Utilizado na Amy)
             texto = "Amy tira algumas anotações de seu bolso e você se assusta. Ela parece estar pensando muito sobre isso.\n";
             TypeEffect(texto);
@@ -650,7 +760,8 @@ public class ProjetoIntegrador {
                         TypeEffect(texto);
                 }
             } while (opcao != 4);
-
+            puxafinal++;
+            FinalizaJogo();
         } else if (desafio == 8) { // feito, Resposta () ()
 
             texto = "Taylor (1856-1915) defendeu a ideia da “Racionalização do Trabalho”,\n" +
@@ -660,43 +771,45 @@ public class ProjetoIntegrador {
             TypeEffect(texto);
 
             do {
-            System.out.println(" 1 - Príncipio do Planejamento.\n" +
-                    " 2 - Príncipio da Preparação dos Trabalhadores.\n" +
-                    " 3 - Princípio do Custo.\n" +
-                    " 4 - Princípio do Controle.\n" +
-                    " 5 -  Princípio da Execução.\n");
-            opcao = input.nextInt();
-            switch (opcao) {
-                case 1:
-                    System.out.println("Errou");
-                    vida = -1;
-                    checaVida();
-                    break;
-                case 2:
-                    System.out.println("Errou");
-                    vida = -1;
-                    checaVida();
-                    break;
-                case 3:
-                    System.out.println("Acertou!!");
-                    somaDesafio++;
-                    checaDesafio();
-                    break;
-                case 4:
-                    System.out.println("Errou");
-                    vida = -1;
-                    checaVida();
-                    break;
-                case 5:
-                    System.out.println("Errou");
-                    vida = -1;
-                    checaVida();
-                    break;
-                default:
-                    texto = "Escolha uma opção válida.\n";
-                    TypeEffect(texto);
-            }
-        } while (opcao != 3);
+                System.out.println(" 1 - Príncipio do Planejamento.\n" +
+                        " 2 - Príncipio da Preparação dos Trabalhadores.\n" +
+                        " 3 - Princípio do Custo.\n" +
+                        " 4 - Princípio do Controle.\n" +
+                        " 5 -  Princípio da Execução.\n");
+                opcao = input.nextInt();
+                switch (opcao) {
+                    case 1:
+                        System.out.println("Errou");
+                        vida = -1;
+                        checaVida();
+                        break;
+                    case 2:
+                        System.out.println("Errou");
+                        vida = -1;
+                        checaVida();
+                        break;
+                    case 3:
+                        System.out.println("Acertou!!");
+                        somaDesafio++;
+                        checaDesafio();
+                        break;
+                    case 4:
+                        System.out.println("Errou");
+                        vida = -1;
+                        checaVida();
+                        break;
+                    case 5:
+                        System.out.println("Errou");
+                        vida = -1;
+                        checaVida();
+                        break;
+                    default:
+                        texto = "Escolha uma opção válida.\n";
+                        TypeEffect(texto);
+                }
+            } while (opcao != 3);
+            puxafinal++;
+            FinalizaJogo();
         }
     }
 
@@ -735,7 +848,8 @@ public class ProjetoIntegrador {
         int Falar = 0;
         String texto;
         do {
-            System.out.printf(" 1 - Falar com Marcos%n 2 - Falar com Leo%n 3 - Falar com Luca%n 4 - Falar com Cecilia %n 5 - Sair%n");
+            System.out.printf(
+                    " 1 - Falar com Marcos%n 2 - Falar com Leo%n 3 - Falar com Luca%n 4 - Falar com Cecilia %n 5 - Sair%n");
             texto = "Responda: ";
             TypeEffect(texto);
             Falar = input.nextInt();
@@ -753,8 +867,8 @@ public class ProjetoIntegrador {
                 if (vidaLuca == 3) {
                     if (val == 0) {
                         texto = "Meus pais me contaram que existiram tempos onde as coisas eram incríveis...\n" +
-                                "Sabe.... carros voa 'snif...' voadores, prédiso incríveis, pessoas andando por ruas 'snif...' IMENSAS.... sabe"
-                                + nome + "O tio Dammy me contou que eles se foram...\n" +
+                                "Sabe.... carros voa 'snif...' voadores, prédiso incríveis, pessoas andando por ruas 'snif...' IMENSAS.... sabe "
+                                + nome + "\nO tio Dammy me contou que eles se foram...\n" +
                                 "Eu não entendo como exatamente se foram, mas ele me disse que não vão mais voltar....\n"
                                 + "Sabe eu gostaria muito de poder conversar mais um pouco com meu pai....";
                         val++;
@@ -792,8 +906,7 @@ public class ProjetoIntegrador {
             } else if (Falar == 4) {
                 QuestioCecilia();
 
-            }
-         else if (Falar == 5) {
+            } else if (Falar == 5) {
                 MapaVila();
                 break;
 
@@ -1096,8 +1209,27 @@ public class ProjetoIntegrador {
                     TypeEffect(texto);
                     MapaVila();
                 } else if (EscolhaCentral == 2) {
+                    int cansaco = 0;
                     System.out.println(" -" + nome);
                     texto = "ZZzzZZzZZZzzZZzzzZZzzzZZZZzzZz...\n";
+                    cansaco--;
+
+                    if (vida < 3) {
+                        vida = +1;
+                        System.out.println("-MoonPresence");
+
+                        texto = "Olha garoto, dizem que descansar te ajuda a continuar, mas não se esqueça dormir ainda pode te deixar exauto...";
+                        TypeEffect(texto);
+                        cansaco++;
+                        cansaco++;
+                    } else if (cansaco == 10) {
+                        System.out.println(" -Marcos");
+                        texto = "Dormir e passar os dias como se nada tivesse que acontecer?, você me deu desgosto garoto";
+                        TypeEffect(texto);
+                        vida = 0;
+                        checaVida();
+
+                    }
                     TypeEffect(texto);
                 } else if (EscolhaCentral == 3) {
                     texto = ".....Okay, nem todos que vieram até aqui tiveram coragem de ficar, mas acredite em mim, o grande sonho só acaba quando se enfrenta a realidade.....\n";
@@ -1107,7 +1239,5 @@ public class ProjetoIntegrador {
             } while (EscolhaCentral != 3);
 
         }
-
     }
-
 }
