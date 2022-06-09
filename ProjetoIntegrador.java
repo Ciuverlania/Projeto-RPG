@@ -15,7 +15,7 @@ public class ProjetoIntegrador {
     private static Random gerador = new Random();
 
     public static void checaVida() {
-        if (vida == 0) {
+        if (vida <= 0) {
             fimDeJogo();
         } else if (vidaBonus == false && vida < 3) {
             Random random = new Random();
@@ -197,7 +197,7 @@ public class ProjetoIntegrador {
             opcao = input.nextInt();
             if (opcao == 1) {
                 texto = "Com base nos pensamentos de Geertz, motivação e conformidade são diferentes.\n"
-                        + " Eu espero que você saiba a resposta, pois isso nos dira se estamos prontos ou não para explorar o território seguindo seus passos.\n"
+                        + " Eu espero que você saiba a resposta, pois isso nos dirá se estamos prontos ou não para explorar o território seguindo seus passos.\n"
                         + "Diga, qual a sua motivação para sair da tribo?";
                 TypeEffect(texto);
 
@@ -410,21 +410,26 @@ public class ProjetoIntegrador {
                     +
                     "existência da dualidade de comando.\n";
             TypeEffect(texto);
+
+            do {
             System.out.println(" 1 - Apenas I e II estão corretas\n" +
                     " 2 - Apenas III e IV estão corretas\n" +
                     " 3 - Apenas I, II e III estão corretas\n" +
                     " 4 - Apenas I e IV estão corretas\n" +
                     " 5 - I, II, III e IV\n");
             opcao = input.nextInt();
+
             switch (opcao) {
                 case 1:
                     System.out.println("Errou!");
                     vida -= 1;
+                    checaVida();
 
                     break;
                 case 2:
                     System.out.println("Errou!");
                     vida -= 1;
+                    checaVida();
 
                     break;
                 case 3:
@@ -434,13 +439,19 @@ public class ProjetoIntegrador {
                 case 4:
                     System.out.println("Errou!");
                     vida -= 1;
+                    checaVida();
                     break;
                 case 5:
                     System.out.println("Errou!");
                     vida -= 1;
+                    checaVida();
                     break;
+                default:
+                    texto = "Escolha uma opção válida.";
+                    TypeEffect(texto);
 
             }
+        } while (opcao != 3);
 
         } else if (desafio == 3) { // feito, Resposta () (Utilizado na Marcia)
 
@@ -458,19 +469,23 @@ public class ProjetoIntegrador {
                 switch (opcao) {
                     case 1:
                         texto = "Temo que você tenha errado...";
+                        TypeEffect(texto);
                         vida -= 1;
                         checaVida();
                         break;
                     case 2:
                         texto = "Correto! Não esperava menos de você";
+                        TypeEffect(texto);
                         break;
                     case 3:
                         texto = "Parece que você está confundindo o Taylorismo com outro modelo de admnistração";
+                        TypeEffect(texto);
                         vida -= 1;
                         checaVida();
                         break;
                     default:
                         texto = "Escolha uma opção válida.";
+                        TypeEffect(texto);
                 }
 
             } while (opcao != 2);
@@ -598,6 +613,8 @@ public class ProjetoIntegrador {
                     +
                     "Frederick Taylor, em um de seus legados escritos “Princípios da Administração Científica”, apresentou quatro princípios fundamentais na racionalização do trabalho, EXCETO:";
             TypeEffect(texto);
+
+            do {
             System.out.println(" 1 - Príncipio do Planejamento.\n" +
                     " 2 - Príncipio da Preparação dos Trabalhadores.\n" +
                     " 3 - Princípio do Custo.\n" +
@@ -608,10 +625,12 @@ public class ProjetoIntegrador {
                 case 1:
                     System.out.println("Errou");
                     vida = -1;
+                    checaVida();
                     break;
                 case 2:
                     System.out.println("Errou");
                     vida = -1;
+                    checaVida();
                     break;
                 case 3:
                     System.out.println("Acertou!!");
@@ -619,12 +638,18 @@ public class ProjetoIntegrador {
                 case 4:
                     System.out.println("Errou");
                     vida = -1;
+                    checaVida();
                     break;
                 case 5:
                     System.out.println("Errou");
                     vida = -1;
+                    checaVida();
                     break;
+                default:
+                    texto = "Escolha uma opção válida.\n";
+                    TypeEffect(texto);
             }
+        } while (opcao != 3);
         }
     }
 
