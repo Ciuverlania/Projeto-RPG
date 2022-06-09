@@ -1,6 +1,16 @@
+/*
+Trabalho de conclusão da disciplina Projeto Integrador I - Turma A Noturno - 1º semestre/2022
+Professor: Eduardo Takeo
+Integrantes: Bianca de Oliveira,
+             Ciuverlania Andrade,
+             Eduardo Oliveira,
+             Enzo Costa.
+*/
+
+package pi;
+
 import java.util.List;
 import java.lang.ProcessBuilder.Redirect.Type;
-import java.rmi.MarshalledObject;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
@@ -9,10 +19,28 @@ public class ProjetoIntegrador {
     public static Scanner input = new Scanner(System.in);
     private static String texto, nome;
     private static boolean MarcosConfirma, DimmyConfirma, MarciaConfirma, CeciliaConfirma, AmyConfirma, JeffConfirma;
-    private static int desafio, vida = 5, comidaQuantidade, soldadosQuantidade, bonusQuestao, val1 = 0, vidaLuca = 3;
+    private static int desafio, vida = 5, comidaQuantidade, soldadosQuantidade, bonusQuestao, val1 = 0, vidaLuca = 3, somaDesafio = 0;
     private static List<String> Comida = new ArrayList<>();
     public static boolean vidaBonus = false;
     private static Random gerador = new Random();
+
+    public static void checaDesafio() {
+
+        int restoDesafio = 8 - somaDesafio;
+
+        if (somaDesafio == 8) {
+            System.out.println("\n-Marcos");
+            System.out.println("\nMeus parabéns " + nome + "!!!");
+            System.out.println("Você provou ser o líder que precisávamos!!!");
+            System.out.println("Agora descanse. Sua jornada acaba aqui.\n");
+            System.out.println("\nFIM\n");
+            System.exit(0);
+
+        }
+        else {
+            System.out.println("\nVocê está no caminho certo, mas ainda existem " + restoDesafio + " desafios a serem completados.\n");
+        }
+    }
 
     public static void checaVida() {
         if (vida <= 0) {
@@ -152,12 +180,12 @@ public class ProjetoIntegrador {
     public static void QuestioLeo() { // Completo. Questionário do Leo
 
         if (MarcosConfirma == true) {
-            texto = "Olá jovem.... depois que seu pai se foi eu sinto que tudo isso está indo de mal a pior....."
-                    + " Mas okay, me parece que você já falou com o marcos...";
+            texto = "\nOlá jovem.... depois que seu pai se foi eu sinto que tudo isso está indo de mal a pior....."
+                    + " Mas okay, me parece que você já falou com o marcos...\n";
             TypeEffect(texto);
-            texto = "Vamos lá cara, preciso te testar e vaaamos ser tranquilos aqui, tenho um desafio para você, se você se preocupou bastante então não deve faltar muito pra você"
+            texto = "\nVamos lá cara, preciso te testar e vaaamos ser tranquilos aqui, tenho um desafio para você, se você se preocupou bastante então não deve faltar muito pra você"
                     +
-                    "Seguinte espero que consiga tudo meu jovem...";
+                    "\nSeguinte espero que consiga tudo meu jovem...\n";
             TypeEffect(texto);
 
             desafio = 6;
@@ -168,6 +196,10 @@ public class ProjetoIntegrador {
                 comidaQuantidade += 7;
             }
 
+        }
+        else {
+            texto = "\nFale com Marcos primeiro.\n";
+            TypeEffect(texto);
         }
 
     }
@@ -304,19 +336,12 @@ public class ProjetoIntegrador {
             System.out.println(" \r1 - Sim\n2 -Não");
             opcao = input.nextInt();
             if (opcao == 1) {
-                desafio = 5;
-                desafios();
-            } else {
                 System.out.println("-Cecilia");
                 texto = "Ótimo, será um prazer ajudar.";
                 TypeEffect(texto);
-            }
-            texto = "Vocês montam um plano de organização e comunica as pessoas da tribo, porém, durante os primeiros dias elas parecem não estarem muito satisfeitas...."
-                    + "Por qual motivo isso ocorreu?\n";
-            TypeEffect(texto);
-            if (opcao == 1) {
                 desafio = 5;
                 desafios();
+
             } else {
                 System.out.println("-Cecilia");
                 texto = "Você terá de bolar um plano sozinho.\n";
@@ -381,9 +406,10 @@ public class ProjetoIntegrador {
                         texto = "Você acertou de primeira, isso influenciará seu futuro...\n";
                         TypeEffect(texto);
                         desafio1 = "certo";
+                        somaDesafio++;
+                        checaDesafio();
 
-                        vida -= 1;
-                        checaVida();
+                        
                     } else {
                         texto = "Você errou de primeira, isso influenciará no seu futuro.....infelizmente\n";
                         TypeEffect(texto);
@@ -434,6 +460,8 @@ public class ProjetoIntegrador {
                     break;
                 case 3:
                     System.out.println("ACERTOOOU!");
+                    somaDesafio++;
+                    checaDesafio();
 
                     break;
                 case 4:
@@ -476,6 +504,8 @@ public class ProjetoIntegrador {
                     case 2:
                         texto = "Correto! Não esperava menos de você";
                         TypeEffect(texto);
+                        somaDesafio++;
+                        checaDesafio();
                         break;
                     case 3:
                         texto = "Parece que você está confundindo o Taylorismo com outro modelo de admnistração";
@@ -520,6 +550,8 @@ public class ProjetoIntegrador {
                     case 3:
                         texto = "Correto!";
                         TypeEffect(texto);
+                        somaDesafio++;
+                        checaDesafio();
                         break;
                     default:
                         texto = "Escolha uma opção válida.";
@@ -529,23 +561,31 @@ public class ProjetoIntegrador {
             } while (opcao != 3);
 
         } else if (desafio == 5) { // feito, Resposta () (Utilizado na Cecilia)
+            int resposta;
             System.out.println("A teoria de Hezberg trata-se de um estudo que teve como objetivo entender os fatores\n"
                     + "responsáveis pela motivação e satisfação das pessoas em um ambiente de trabalho");
+
+            do {
             System.out.println("Com base nisso, qual foi a conclusão desta teoria?\n"
                     + "1 - A insatisfação dos colaboradores estão relacionados as questões ambientais\n"
                     + "2 - Preguiça\n" + "3 - Estão ligadas aos relacionamentos interpessoais, condições de trabalho\n"
                     + "4 - 1 e 3 são verdadeiras");
             System.out.print("Responda: ");
-            int resposta = input.nextInt();
+            resposta = input.nextInt();
             if (resposta == 4) {
                 System.out.println("ACERTOOOOU!");
+                somaDesafio++;
+                checaDesafio();
             } else {
                 System.out.println("ERROOOOU!");
                 vida -= 1;
                 checaVida();
             }
+        } while (resposta != 4);
 
         } else if (desafio == 6) { // feito, Resposta () (Utilizado no Leo)
+            int resposta;
+            do {
             System.out.println(
                     "A teoria de McClelland é explicar a importância dos processos psicológicos no desenvolvimento econômico,\n"
                             + "estudar valores e motivações que levam os homens a explorar oportunidades e tirar vantagens das condições favoráveis do comércio ");
@@ -553,17 +593,20 @@ public class ProjetoIntegrador {
                     + "1 - Poder, Vantagens, Exploração\n" + "2 - Afiliação, Realização, Poder\n"
                     + "3 - Apenas 4 está correta\n" + "4 - Exploração, Afiliação, Vantagens\n");
             System.out.println("Responda: ");
-            int resposta = input.nextInt();
+
+            
+            resposta = input.nextInt();
             if (resposta == 2) {
                 System.out.println("Parabéns, acertou na mosca!");
+                somaDesafio++;
+                checaDesafio();
             } else {
                 System.out.println("Que pena você errou!");
-                if (resposta != 2) {
                     vida -= 1;
-                    checaVida();
-                }
-
+                    checaVida(); 
             }
+            } while (resposta != 2);
+
         } else if (desafio == 7) { // feito, Resposta () (Utilizado na Amy)
             texto = "Amy tira algumas anotações de seu bolso e você se assusta. Ela parece estar pensando muito sobre isso.\n";
             TypeEffect(texto);
@@ -599,6 +642,8 @@ public class ProjetoIntegrador {
                     case 4:
                         texto = "Amy sorri... Isso mé parece um ótimo sinal!\n";
                         TypeEffect(texto);
+                        somaDesafio++;
+                        checaDesafio();
                         break;
                     default:
                         texto = "Escolha uma opção válida.\n";
@@ -634,6 +679,8 @@ public class ProjetoIntegrador {
                     break;
                 case 3:
                     System.out.println("Acertou!!");
+                    somaDesafio++;
+                    checaDesafio();
                     break;
                 case 4:
                     System.out.println("Errou");
@@ -688,7 +735,7 @@ public class ProjetoIntegrador {
         int Falar = 0;
         String texto;
         do {
-            System.out.printf(" 1 - Falar com Marcos%n 2 - Falar com Leo%n 3 - Falar com Luca%n 4 - Sair%n");
+            System.out.printf(" 1 - Falar com Marcos%n 2 - Falar com Leo%n 3 - Falar com Luca%n 4 - Falar com Cecilia %n 5 - Sair%n");
             texto = "Responda: ";
             TypeEffect(texto);
             Falar = input.nextInt();
@@ -714,20 +761,22 @@ public class ProjetoIntegrador {
                         TypeEffect(texto);
                         texto = "Sabe o que você recomendaria que eu fizesse?, me sinto muito sozinho atualmente";
                         TypeEffect(texto);
-                        texto = "Aconselhe com duidado o pequeno Luca....";
+                        texto = "Aconselhe com cuidado o pequeno Luca....";
                         TypeEffect(texto);
-                        System.out.println("1 - Deveria brincar um pouco." +
-                                " 2 - Deveria conversar mais com as pessoas da Vila, seus pais gostariam disso." +
-                                "3 - Sei lá pequeno, procura algo");
+                        System.out.println("\n1 - Deveria brincar um pouco." +
+                                " \n2 - Deveria conversar mais com as pessoas da Vila, seus pais gostariam disso." +
+                                "\n3 - Sei lá pequeno, procura algo");
                         conselho = input.nextInt();
                         if (conselho == 1) {
                             vidaLuca--;
                             texto = ".....Luca não parece muito contente com sua opinião...";
+                            TypeEffect(texto);
                         } else if (conselho == 2) {
                             texto = "Claro.... acredito que vocês possam me ajudar....";
                             TypeEffect(texto);
                         } else if (conselho == 3) {
                             texto = "O pequeno Luca sai cabisbaixo com sua ignorância...";
+                            TypeEffect(texto);
                             vidaLuca = 0;
                         }
                     }
@@ -741,6 +790,11 @@ public class ProjetoIntegrador {
 
                 }
             } else if (Falar == 4) {
+                QuestioCecilia();
+
+            }
+         else if (Falar == 5) {
+                MapaVila();
                 break;
 
             }
@@ -842,6 +896,7 @@ public class ProjetoIntegrador {
                     "as vozes me disseram que quando eu pulasse eu iria 'para o outro lado', e a mamãe e o papai vão estar lá :)\n tchau gente, espero que eu possa ver vocês logo......\n";
             TypeEffect(texto);
             texto = "\n O pesar na sua mente é grande demais para continuar.....";
+            TypeEffect(texto);
             vida = 0;
             checaVida();
 
@@ -864,7 +919,7 @@ public class ProjetoIntegrador {
             switch (escolha) {
                 case 1:
                     System.out.println(
-                            "Então vamos lá.... \n O que aconteceria com um garote se você não desse a devida atenção para ele?");
+                            "Então vamos lá.... \n O que aconteceria com um garoto se você não desse a devida atenção para ele?");
                     System.out.println(
                             "1 - Ele viveria feliz para sempre \n 2 - Ele provaria sua inocência\n 3 - Ele iria atrás dos pais dele....?");
                     escolha = input.nextInt();
